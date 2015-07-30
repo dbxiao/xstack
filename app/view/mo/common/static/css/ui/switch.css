@@ -1,0 +1,57 @@
+.ui-switch{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    float: right;
+    clear: both;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    display: none;
+}
+.ui-switch .switch-menu{
+    width: 50%;
+    display: block;
+    position: absolute;
+    background: #319ef0;
+    border: 1px solid #2d76b9;
+    border-radius: 3px;
+    height: 30px;
+    top: -1px;
+    text-indent: -9999em;
+    transition: all .5s;
+}
+.ui-switch .switch-on{
+    float:left;
+    width:50%;
+    position: relative;
+    z-index: 2;
+    transition: all .5s;
+}
+.ui-switch .switch-off{
+    float:left;
+    width:50%;
+    position: relative;
+    z-index: 2;
+    transition: all .5s;
+}
+
+.ui-switch.on .switch-menu{
+    left: -1%;
+    transition: all .5s;
+}
+.ui-switch .switch-menu{
+    left: 50%;
+    transition: all .5s;
+}
+.ui-switch.on .switch-on,.ui-switch .switch-off{
+    color:#fff;
+    transition: all .5s;
+}
+.ui-switch.on .switch-off,.ui-switch .switch-on{
+    color:#333;
+    transition: all .5s;
+}

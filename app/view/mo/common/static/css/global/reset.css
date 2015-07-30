@@ -1,0 +1,201 @@
+/*
+ * reset style
+ */
+
+clearfix {
+    clear: both;
+}
+html {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+body {
+    font: normal 100% Helvetica, Arial, sans-serif;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+textarea,
+select,
+optgroup,
+option,
+fieldset,
+legend,
+p,
+blockquote,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+fieldset,
+img {
+    border: 0;
+}
+
+ul,
+li,
+ol {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+}
+
+legend {
+    color: #000;
+}
+
+input,
+button,
+textarea,
+select,
+optgroup,
+option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+}
+
+input,
+button,
+select {
+    margin: 0;
+    *font-size: 100%;
+    line-height: 1.2;
+}
+
+a img,
+img {
+    -ms-interpolation-mode: bicubic;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+
+header,
+aside,
+section {
+    display: block;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    font: 12px/1.5 tahoma, arial, "微软雅黑,宋体";
+    color: #666;
+}
+
+/*适配300以上屏幕*/
+@media (min-width: 320px) {
+    html {
+        font-size: 1px !important;
+    }
+}
+
+/*适配360以上屏幕*/
+@media (min-width: 360px) {
+    html {
+        font-size: 1.12px !important;
+    }
+}
+
+/*适配400以上屏幕*/
+@media (min-width: 400px) {
+    html {
+        font-size: 1.25px !important;
+    }
+}
+
+/*适配480以上屏幕*/
+@media (min-width: 480px) {
+    html {
+        font-size: 1.50px !important;
+    }
+}
+
+/*适配540以上屏幕*/
+@media (min-width: 540px) {
+    html {
+        font-size: 1.68px !important;
+    }
+}
+
+/*适配640以上屏幕*/
+@media (min-width: 640px) {
+    html {
+        font-size: 2.00px !important;
+    }
+}
+
+/*适配720以上屏幕*/
+@media (min-width: 720px) {
+    html {
+        font-size: 2.25px !important;
+    }
+}
+
+/*适配768以上屏幕*/
+@media (min-width: 768px) {
+    html {
+        font-size: 2.40px !important;
+    }
+}
+
+/*适配800以上屏幕*/
+@media (min-width: 800px) {
+    html {
+        font-size: 2.50px !important;
+    }
+}
+
+/*适配1080以上屏幕*/
+@media (min-width: 1080px) {
+    html {
+        font-size: 3.37px !important;
+    }
+}
+input::-ms-clear {
+    display: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+button {
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}

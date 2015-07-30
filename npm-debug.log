@@ -1,0 +1,89 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'ngixt' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.35
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 warn package.json easymysql@0.2.7 No repository field.
+6 warn package.json mongodb@1.4.20 No README data
+7 warn package.json crypto@0.0.3 crypto is also the name of a node core module.
+8 verbose readDependencies using package.json deps
+9 verbose cache add [ 'ngixt', null ]
+10 verbose cache add name=undefined spec="ngixt" args=["ngixt",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'ngixt',
+11 verbose parsed url   path: 'ngixt',
+11 verbose parsed url   href: 'ngixt' }
+12 silly lockFile e37b5795-ngixt ngixt
+13 verbose lock ngixt C:\Users\doublexiao\AppData\Roaming\npm-cache\e37b5795-ngixt.lock
+14 silly lockFile e37b5795-ngixt ngixt
+15 silly lockFile e37b5795-ngixt ngixt
+16 verbose addNamed [ 'ngixt', '' ]
+17 verbose addNamed [ null, '*' ]
+18 silly lockFile 6f73bcc6-ngixt ngixt@
+19 verbose lock ngixt@ C:\Users\doublexiao\AppData\Roaming\npm-cache\6f73bcc6-ngixt.lock
+20 silly addNameRange { name: 'ngixt', range: '*', hasData: false }
+21 verbose request where is /ngixt
+22 verbose request registry https://registry.npmjs.org/
+23 verbose request id 583dba0ae8a2ae16
+24 verbose url raw /ngixt
+25 verbose url resolving [ 'https://registry.npmjs.org/', './ngixt' ]
+26 verbose url resolved https://registry.npmjs.org/ngixt
+27 verbose request where is https://registry.npmjs.org/ngixt
+28 info trying registry request attempt 1 at 13:38:03
+29 http GET https://registry.npmjs.org/ngixt
+30 http 404 https://registry.npmjs.org/ngixt
+31 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+31 verbose headers   'content-type': 'application/json',
+31 verbose headers   'cache-control': 'max-age=0',
+31 verbose headers   'content-length': '51',
+31 verbose headers   'accept-ranges': 'bytes',
+31 verbose headers   date: 'Mon, 20 Jul 2015 05:38:27 GMT',
+31 verbose headers   via: '1.1 varnish',
+31 verbose headers   age: '0',
+31 verbose headers   connection: 'keep-alive',
+31 verbose headers   'x-served-by': 'cache-sjc3127-SJC',
+31 verbose headers   'x-cache': 'MISS',
+31 verbose headers   'x-cache-hits': '0',
+31 verbose headers   'x-timer': 'S1437370707.094394,VS0,VE39' }
+32 silly registry.get cb [ 404,
+32 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+32 silly registry.get     'content-type': 'application/json',
+32 silly registry.get     'cache-control': 'max-age=0',
+32 silly registry.get     'content-length': '51',
+32 silly registry.get     'accept-ranges': 'bytes',
+32 silly registry.get     date: 'Mon, 20 Jul 2015 05:38:27 GMT',
+32 silly registry.get     via: '1.1 varnish',
+32 silly registry.get     age: '0',
+32 silly registry.get     connection: 'keep-alive',
+32 silly registry.get     'x-served-by': 'cache-sjc3127-SJC',
+32 silly registry.get     'x-cache': 'MISS',
+32 silly registry.get     'x-cache-hits': '0',
+32 silly registry.get     'x-timer': 'S1437370707.094394,VS0,VE39' } ]
+33 silly lockFile 6f73bcc6-ngixt ngixt@
+34 silly lockFile 6f73bcc6-ngixt ngixt@
+35 error 404 404 Not Found: ngixt
+35 error 404
+35 error 404 'ngixt' is not in the npm registry.
+35 error 404 You should bug the author to publish it
+35 error 404 It was specified as a dependency of 'xpluse_demo'
+35 error 404
+35 error 404 Note that you can also install from a
+35 error 404 tarball, folder, or http url, or git url.
+36 error System Windows_NT 6.2.9200
+37 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "ngixt"
+38 error cwd E:\htdocs\xpluse
+39 error node -v v0.10.35
+40 error npm -v 1.4.28
+41 error code E404
+42 verbose exit [ 1, true ]

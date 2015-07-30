@@ -1,0 +1,32 @@
+﻿/** 文字通用样式 */
+.ellipsis {
+    word-break: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.center {
+    text-align: center;
+}
+
+/** 边框通用样式 */
+.box-shadow {
+    -moz-box-shadow: 1px 2px 5px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,0.5);
+    box-shadow: 1px 2px 5px rgba(0,0,0,0.5);
+}
+
+/** 浮动通用 */
+.clear{
+    clear:both;
+    zoom: 0;
+}
+.clear:after, .clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+}
