@@ -91,27 +91,9 @@ var serverUtil = {
      * @attention: 严禁修改此处代码。
 	 */
 	passMd5 : function(password){
-		var passMd5 = $hash.md5($hash.md5(password+'XPLUES-SINCE-2015'));
+		var passMd5 = $hash.md5($hash.md5(password));
 		return passMd5;
 	},
-    
-    /**
-     * [passToken 密码token，用于用户验证使用]
-     * @param  {String} password [用户密码]
-     */
-	passToken : function(password){
-		var passToken = $hash.md5($hash.md5('XPLUES-'+password+'-TOKEN-2015'));
-		return passToken;
-	},
-
-    /**
-     * [passToken 密码token，用于用户验证使用]
-     * @param  {String} password [用户密码]
-     */
-    accessToken : function(){
-        var passToken = $hash.md5($hash.md5('XPLUSE-'+new Date().getTime()+'-TOKEN-2015'));
-        return passToken;
-    },
 
     /**
      * [formatToStamp 将日期转为时间戳]
@@ -135,28 +117,6 @@ var serverUtil = {
             }
         }
         return obj;
-    },
-
-    /**
-     * [sexyToNum 将文字性别转为01标示]
-     * @param  {String} sexy [男：1，女：0]
-     */
-    sexyToNum : function(sexy){
-        var sex = sexy === "男" ? "1" : "0";
-        return sex;
-    },
-    /**
-     * [safeData description]
-     * @param  {Object} data [对象数据]
-     */
-    safeData : function(data){
-        delete data.user_id;
-        delete data.user_token;
-        delete data.user_access;
-        delete data.user_regType;
-        delete data.user_password;
-        delete data.user_token_id;
-        return data;
     }
 };
 
