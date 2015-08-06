@@ -5,17 +5,33 @@
  * @desc   [路由转发配置文件]
  */
 
-var arr = new Array();
+var fs   = require('fs');
 var routerAgent = new Array();
 
-var routerList = {
-	home     : require('../routerConf/home.js')
-};
+function formatRouter(files){
+	var routerList  = new Array();
+	var path = null;
+	for(x in files){
+		path = files[x].split(".js")[0]; 
+		routerList[path] = require('../routerConf/'+path);
+	};
+	return routerList;
+}
 
+function formatAgent(routerList){
+	var arr  = new Array();
+	for(x in routerList){
+		for(var i=0; i<routerList[x].length; i++){
+			routerAgent.push(routerList[x][i]);
+		}
+	};
+	return routerAgent
+}
 
-routerAgent = arr.concat(
-	routerList['home']
-);
+fs.readdir(GLOBAL.nodeConf.ROUT_DIR+"/routerConf", function(err, files){
+	formatAgent(formatRouter(files));
+});
+
 
 module.exports = routerAgent;
 
