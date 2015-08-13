@@ -1,0 +1,23 @@
+.widget-header {
+  height: 65px;
+  line-height: 65px;
+  width: 100%;
+  background: #000000;
+}
+.widget-header .logo {
+  font-size: 24px;
+  padding-left: 20px;
+  color: #fff;
+  float: left;
+}
+.widget-header .logo .xlogo em {
+  font-style: normal;
+  color: red;
+}
+.widget-header .user-info {
+  float: right;
+  padding-right: 20px;
+}
+.widget-header .user-info a {
+  color: #666;
+}

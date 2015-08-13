@@ -33,4 +33,3 @@ fs.readdir(GLOBAL.nodeConf.ROUT_DIR+"/conf/router", function(err, files){
 
 
 module.exports = routerAgent;
-

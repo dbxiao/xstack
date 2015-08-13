@@ -4,9 +4,9 @@
  * @desc   [路由主程序]
  */
 
-var express           = require('express');
+var express      = require('express');
 //初始化路由
-var router            = express.Router();
+var router       = express.Router();
 //检查路由配置
 var routerAction = require('./lib/routerAction.js');
 //检查路由配置

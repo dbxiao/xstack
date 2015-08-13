@@ -15,13 +15,17 @@
  */
 
 var host = [
-    // {
-    //     host : "xstack.com", //请设置你的域名
-    //     path : "/"
-    // },
-    // {
-    //     host : "www.xstack.com",
-    //     path : "/"
-    // }
+	{
+		host : "127.0.0.1",
+		path : "/"
+	},
+    {
+        host : "xpluse.com", //请设置你的域名
+        path : "/"
+    },
+    {
+        host : "www.xpluse.com",
+        path : "/"
+    }
 ];
 module.exports = host;

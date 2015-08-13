@@ -1,7 +1,7 @@
 {
     "res": {
         "home:page/home/home.css": {
-            "uri": "/static/pc/home/page/home/home.css?t=2015730114753",
+            "uri": "/static/pc/home/page/home/home.css?t=201581319745",
             "type": "css"
         },
         "home:page/home/home.html": {
@@ -13,14 +13,14 @@
             ]
         },
         "home:page/home/home.js": {
-            "uri": "/static/pc/home/page/home/home.js?t=2015730114753",
+            "uri": "/static/pc/home/page/home/home.js?t=201581319745",
             "type": "js",
             "deps": [
                 "home:page/home/home.css"
             ]
         },
         "home:page/index/index.css": {
-            "uri": "/static/pc/home/page/index/index.css?t=2015730114753",
+            "uri": "/static/pc/home/page/index/index.css?t=201581319745",
             "type": "css"
         },
         "home:page/index/index.html": {
@@ -32,15 +32,16 @@
             ]
         },
         "home:page/index/index.js": {
-            "uri": "/static/pc/home/page/index/index.js?t=2015730114753",
+            "uri": "/static/pc/home/page/index/index.js?t=201581319745",
             "type": "js",
             "deps": [
                 "home:page/index/index.css"
             ]
         },
         "home:widget/header/header.css": {
-            "uri": "/static/pc/home/widget/header/header.css?t=2015730114753",
-            "type": "css"
+            "uri": "/static/pc/home/widget/header/header.css?t=201581319745",
+            "type": "css",
+            "pkg": "home:p1"
         },
         "home:widget/header/header.html": {
             "uri": "/view/pc/home/widget/header/header.html",
@@ -51,12 +52,31 @@
             ]
         },
         "home:widget/header/header.js": {
-            "uri": "/static/pc/home/widget/header/header.js?t=2015730114753",
+            "uri": "/static/pc/home/widget/header/header.js?t=201581319745",
             "type": "js",
             "deps": [
                 "home:widget/header/header.css"
-            ]
+            ],
+            "pkg": "home:p0"
         }
     },
-    "pkg": {}
+    "pkg": {
+        "home:p0": {
+            "uri": "/static/pc/home/pkg/home_widget.js?t=201581319745",
+            "type": "js",
+            "has": [
+                "home:widget/header/header.js"
+            ],
+            "deps": [
+                "home:widget/header/header.css"
+            ]
+        },
+        "home:p1": {
+            "uri": "/static/pc/home/pkg/home_widget.css?t=201581319745",
+            "type": "css",
+            "has": [
+                "home:widget/header/header.css"
+            ]
+        }
+    }
 }
