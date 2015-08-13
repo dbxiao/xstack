@@ -1,12 +1,12 @@
 /*
- * @author:dbxiao
- * @data:2014-11-11
- * @module:globalConfig
- * @function:提供node全局配置参数
+ * @author [dbxiao]
+ * @data   [2014-11-11]
+ * @class  [globalConfig]
+ * @desc   [提供node全局配置参数]
  */
 var path = require('path');
 var ROOT_DIR = path.join( process.argv[1] || __dirname, '../');
-//rd conf
+
 GLOBAL.nodeConf = {
     //服务端口
     PORT : 18080,

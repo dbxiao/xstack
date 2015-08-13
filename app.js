@@ -7,12 +7,12 @@
 ////////////////////////////////////////////////
 //============  module 引入    =================//
 ////////////////////////////////////////////////
-//提供WEB框架服务
-var express = require('express');
+
+
 //提供全局配置
 var globalConfig = require('./config/globalConfig');
-//ejs-locals
-//var engine = require('ejs-locals');
+//提供WEB框架服务
+var express     = require('express');
 //提供WEB PATH服务
 var path = require('path');
 //提供WEB ICON服务
@@ -29,7 +29,7 @@ var multipart = require('connect-multiparty');
 var router = require(GLOBAL.nodeConf.ROUT_DIR + 'router');
 //实例化app服务
 var app = express();
-// //socket
+/** socket */
 // var server = http.createServer(app).listen(GLOBAL.nodeConf.PORT);
 // //io
 // io = require('socket.io').listen(server);

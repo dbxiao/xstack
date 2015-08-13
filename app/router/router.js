@@ -1,18 +1,18 @@
-/**
+/*
  * @author [dbxiao]
- * @date   [2015-02-13]
- * @module [router]
- * @desc   [路由执行方法]
+ * @data   [2014-11-11]
+ * @desc   [路由主程序]
  */
 
-//加载express框架
 var express           = require('express');
-//检查路由配置
-var routerCheckAction = require('./lib/routerCheckAction.js');
 //初始化路由
 var router            = express.Router();
+//检查路由配置
+var routerAction = require('./lib/routerAction.js');
+//检查路由配置
+var routerHost   = require('./lib/routerHost.js');
 //定义默认的title
-var title             = "X Stack!";
+var title             = "Xstack!";
 
 //format绝对路径
 var directPath = function(path){
@@ -26,8 +26,8 @@ var directPath = function(path){
  * @param {Object} next 
  */
 var initAction = function(req, res, next){
-    var reqPath= req.path;
-    var act    = routerCheckAction(reqPath);
+    var reqPath= routerHost(req.host, req.path);
+    var act    = routerAction(reqPath);
     var server = "";
 
     if(act.server && !act.view){

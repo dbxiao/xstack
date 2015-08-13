@@ -9,8 +9,4 @@
 
 项目结构：
 	common\
-		  \account.js      //账号状态服务
 		  \errorCode.js    //错误码
-		  \hash.js         //hash加密服务
-		  \plus.js         //第三方服务
-		  \util.js         //工具服务

@@ -1,8 +1,7 @@
 /**
- * @author [dbxiao]
- * @date   [2015-02-12]
- * @module [routerAgent]
- * @desc   [路由转发配置文件]
+ * @author:dbxiao
+ * @module:routerAgent
+ * @function:提供路由转发规则，提供url、view、server配置
  */
 
 var fs   = require('fs');
@@ -13,7 +12,7 @@ function formatRouter(files){
 	var path = null;
 	for(x in files){
 		path = files[x].split(".js")[0]; 
-		routerList[path] = require('../routerConf/'+path);
+		routerList[path] = require('../conf/router/'+path);
 	};
 	return routerList;
 }
@@ -25,10 +24,10 @@ function formatAgent(routerList){
 			routerAgent.push(routerList[x][i]);
 		}
 	};
-	return routerAgent
+	return routerAgent;
 }
 
-fs.readdir(GLOBAL.nodeConf.ROUT_DIR+"/routerConf", function(err, files){
+fs.readdir(GLOBAL.nodeConf.ROUT_DIR+"/conf/router", function(err, files){
 	formatAgent(formatRouter(files));
 });
 

@@ -1,22 +1,26 @@
 {
-  "name": "xpluse_demo",
+    "name": "xstack",
   "version": "1.0.0",
-  "author": "bae",
+    "author": "dbxiao",
   "private": true,
-  "description": "The first bae nodejs app!",
+    "description": "A web full stack development framework!",
+    "keywords" : "full stack development framework. depend on express and ejs. support mysql¡¢less and so on",
+    "homepage" : "http://develop.xpluse.com",
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
-    "body-parser": "~1.0.0",
-    "cookie-parser": "~1.0.1",
-    "debug": "~0.7.4",
-    "ejs": "^2.3.2",
-    "ejs-locals": "^1.0.2",
-    "express": "~4.2.0",
-    "morgan": "~1.0.0",
-    "nodemailer": "^1.3.0",
-    "static-favicon": "~1.0.0",
-    "stylus": "0.42.3"
+        "body-parser": "~1.0.0",        //[必选插件，提供数据解析服务]
+        "connect-multiparty": "~1.2.5", //[必选插件，提供文件解析服务]
+        "cookie-parser": "~1.0.1",      //[必选插件，提供cookie服务]
+        "crypto": "~0.0.3",             //[必选插件，提供数据加密服务]
+        "ejs": "^2.3.2",                //[必选插件，提供模板渲染服务]
+        "express": "~4.2.0",            //[必选插件，提供基础web服务]
+        "nodemailer": "^1.3.0",         //[可选插件，提供邮件服务]
+        "mysql": "2.5.3",               //[可选插件，提供数据库服务]
+        "static-favicon": "~1.0.0",     //[可选插件，提供浏览器图标服务]
+        "debug": "~0.7.4",              //[可选插件，提供调试日志服务]
+        "socket.io": "1.2.1"            //[可选插件，websocket]
+
   }
 }
