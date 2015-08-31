@@ -1,12 +1,1 @@
-define('home:page/index/index.js', function(require, exports, module){ var index = function(){
-	this.init();
-}
-index.prototype = {
-	init : function(){
-
-	}
-};
-
-new index();
-
- });
+define("home:page/index/index.js",function(){var c=function(){this.init()};c.prototype={init:function(){}},new c});

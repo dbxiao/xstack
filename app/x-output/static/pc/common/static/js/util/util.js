@@ -1,1 +1,171 @@
-!function(){var a={toFriendlyFileSize:function(a){return 0>a||isNaN(a)?"0KB":1024>a?Math.round(a)+"B":1048576>a&&a>=1024?Math.round(a/1024)+"KB":1073741824>a&&a>=1048576?10*(a/1024/1024).toFixed(1)/10+"MB":100*(a/1024/1024/1024).toFixed(2)/100+"GB"},toFriendlyFileSizeMB:function(a){var s=10*(a/1024/1024).toFixed(1)/10;return isNaN(s)?"0KB":s+"MB"},requireTpl:function(a,c){var g=(new Date).getTime(),w=a+"?t="+g;$.get(w,function(a){"function"==typeof c&&c(a)})},parseNetType:function(a){return a},parseFromeTime:function(t){var d=parseInt(t/86400),a=parseInt((t-86400*d)/3600),m=parseInt((t-86400*d-3600*a)/60),s=t-86400*d-3600*a-60*m,c=d+"天"+a+"小时"+m+"分"+s+"秒";return c},parseDate:function(a){var c=new Date(1e3*a),g=[c.getUTCFullYear(),c.getUTCMonth()+1,c.getUTCDate(),c.getHours(),c.getMinutes(),c.getSeconds()];return $.each(g,function(a,i){9>=a&&(g[i]="0"+a)}),g=g.slice(0,3).join("-")+" "+g.slice(3,5).join(":")},getParam:function(a,c){try{var re=new RegExp("(?:^|\\?|#|&)"+a+"=([^&#]*)(?:$|&|#)","i"),m=re.exec(c||location.href);return m?m[1]:""}catch(e){}},getProportion:function(a,c,g){return Math.round(g/a*c)},getProorWidth:function(a,c){return Math.round(c/100*a)},setHeight:function(){var a=$("body").height(),c=$(window).height(),g=$("header").height(),w=c-g,h=a-g;return trulyH=h>w?h:w},setStrCookie:function(a,c){var g,w=a;w||(w="webos.data"),g=$.parseJSON(webos.common.getCookie(w)),g||(g={});for(x in c)g[x]=c[x];webos.common.setCookie(a,$.stringify(g),"","/")},getParCookie:function(a){return $.parseJSON(webos.common.getCookie(a))},setCookie:function(a,c,g,w,h){var k=new Date,v="",_="";k.setDate(k.getDate()+g),h&&(v=";domain="+h),w&&(_=";path="+w),document.cookie=a+"="+escape(c)+(null==g?"":";expires="+k.toGMTString())+_+v},getCookie:function(a){return window.document.cookie.length>0&&(c_start=window.document.cookie.indexOf(a+"="),-1!=c_start)?(c_start=c_start+a.length+1,c_end=window.document.cookie.indexOf(";",c_start),-1==c_end&&(c_end=window.document.cookie.length),unescape(window.document.cookie.substring(c_start,c_end))):""},getSignId:function(a){var c={};$.get(webos.luci.API_GET_SIGN_ID,function(g){var w=$.parseJSON(g||{});w&&(c.device_id=w.id,c.sign=w.sign,webos.common.setStrCookie("webos-system-data",c),"function"==typeof a&&a(c))})},getMailAddr:function(a){return mailAddr=a.split("@")[1]},formatGetParam:function(a){var c=[];for(var i in a)c.push(i+"="+a[i]);return c.push("ak="+webos.PageConf.ak),c.push("sign="+webos.PageConf.sign),c.push("t="+(new Date).getTime()),"?"+c.join("&")},debug:function(){return!1}};webos.util=a}();
+/**
+ * @author:dbxiao
+ * @class:common
+ * @module:util
+ */
+(function(){
+    var util = {
+        toFriendlyFileSize : function(size) {
+            if (size < 0 || isNaN(size)) {
+                return "0KB";
+            } else if (size < 1024)
+                return Math.round(size) + "B";
+            else if (size < 1024 * 1024 && size >= 1024)
+                return Math.round(size / 1024) + "KB";
+            else if (size < 1024 * 1024 * 1024 && size >= 1024 * 1024)
+                return (size / 1024 / 1024).toFixed(1) * 10 / 10 + "MB";
+            else
+                return (size / 1024 / 1024 / 1024).toFixed(2) * 100 / 100 + "GB";
+        },
+        toFriendlyFileSizeMB : function(size) {
+            var s = (size / 1024 / 1024).toFixed(1) * 10 / 10;
+            if (isNaN(s)) {
+                return "0KB";
+            } else {
+                return s + "MB";
+            }
+        },
+        requireTpl : function(tpl, callback) {
+            var time = new Date().getTime();
+            var tplUrl = tpl + "?t=" + time;
+            $.get(tplUrl, function(tpl) {
+                if ( typeof callback == "function") {
+                    callback(tpl);
+                };
+            });
+        },
+        parseNetType : function(netType) {
+            return netType;
+        },
+        parseFromeTime : function(t) {
+            var d = parseInt(t / 86400), 
+                h = parseInt((t - d * 86400) / 3600), 
+                m = parseInt((t - d * 86400 - h * 3600) / 60), 
+                s = t - d * 86400 - h * 3600 - m * 60;
+            var time = d + "天" + h + "小时" + m + "分" + s + "秒";
+            return time;
+        },
+        parseDate : function(timerub) {
+            var date = new Date(timerub * 1000);
+            var i = 0;
+    
+            var time = [date.getUTCFullYear(), 
+                date.getUTCMonth() + 1, 
+                date.getUTCDate(), 
+                date.getHours(), 
+                date.getMinutes(), 
+                date.getSeconds()];
+    
+            $.each(time, function(val, i) {
+                if (val <= 9) {
+                    time[i] = '0' + val;
+                }
+            });
+            time = time.slice(0, 3).join('-') + ' ' + time.slice(3, 5).join(':');
+    
+            return time;
+        },
+        getParam : function(name, src) {
+            try{
+                var re = new RegExp('(?:^|\\?|#|&)' + name + '=([^&#]*)(?:$|&|#)', 'i');
+                var m = re.exec(src || location.href);
+                return m ? m[1] : '';
+            }catch(e){};
+            
+        },
+        getProportion : function(total, used, width) {
+            return Math.round(width / total * used);
+        },
+        getProorWidth : function(per, width) {
+            return Math.round(width / 100 * per);
+        },
+        setHeight : function() {
+            var bodyH = $("body").height(), 
+                windowH = $(window).height(), 
+                headerH = $("header").height(), 
+                rangeH = windowH - headerH, 
+                contH = bodyH - headerH;
+                
+            return trulyH = contH > rangeH ? contH : rangeH;
+        },
+        setStrCookie : function(name, value) {
+            var _name = name;
+            var _value = value;
+            var _data;
+    
+            if (!_name) {
+                _name = "webos.data";
+            }
+            _data = $.parseJSON(webos.common.getCookie(_name));
+            if (!_data) {
+                _data = {};
+            }
+            for (x in value) {
+                _data[x] = value[x];
+            }
+            webos.common.setCookie(name, $.stringify(_data), "", "/");
+        },
+        getParCookie : function(name) {
+            return $.parseJSON(webos.common.getCookie(name));
+        },
+        setCookie : function(name, value, expiredays, path, domain) {
+            var exdate = new Date(), domainStr = "", pathStr = "";
+            exdate.setDate(exdate.getDate() + expiredays);
+            if (domain) {
+                domainStr = ";domain=" + domain;
+            }
+            if (path) {
+                pathStr = ";path=" + path;
+            }
+            //window.document.cookie = name + "=" + escape(value) + ";path=/;domain=baidu.com";
+            document.cookie = name + "=" + escape(value) + ((expiredays==null) ? "" : ";expires=" + exdate.toGMTString()) + pathStr + domainStr;
+        },
+        getCookie : function(name) {
+            if (window.document.cookie.length > 0) {
+                c_start = window.document.cookie.indexOf(name + "=");
+                if (c_start != -1) {
+                    c_start = c_start + name.length + 1;
+                    c_end = window.document.cookie.indexOf(";", c_start);
+                    if (c_end == -1)
+                        c_end = window.document.cookie.length;
+                    return unescape(window.document.cookie.substring(c_start, c_end));
+                }
+            }
+            return "";
+        },
+        getSignId : function(callback) {
+            var data = {};
+            $.get(webos.luci.API_GET_SIGN_ID, function(res) {
+                var _data = $.parseJSON(res || {});
+                if (_data) {
+                    data.device_id = _data.id;
+                    data.sign = _data.sign;
+                    webos.common.setStrCookie("webos-system-data", data);
+                    if ( typeof callback == "function") {
+                        callback(data);
+                    }
+                }
+    
+            });
+        },
+        getMailAddr : function(mail){
+            mailAddr  = mail.split("@")[1];
+            return mailAddr;
+        },
+        formatGetParam : function(param){
+            var urlparam=[];
+            for(var i in param){
+                urlparam.push(i+"="+param[i]);
+            }
+            urlparam.push("ak="+webos.PageConf["ak"]);
+            urlparam.push("sign="+webos.PageConf["sign"]);
+            urlparam.push("t="+new Date().getTime());
+            return "?"+urlparam.join("&");
+        },
+        debug : function(){
+            return false;
+        }
+    };
+    
+    webos.util = util;
+})();

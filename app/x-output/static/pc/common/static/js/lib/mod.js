@@ -1,1 +1,145 @@
-var require,define;!function(a){function c(a,c){var w=h[a]||(h[a]=[]);w.push(c);var k=v[a]||{},j=k.pkg?g[k.pkg].uri:k.uri||a;if(!(j in E)){E[j]=!0;var C=document.createElement("script");C.type="text/javascript",C.src=j,y.appendChild(C)}}var v,g,y=document.getElementsByTagName("head")[0],h={},w={},k={},E={};define=function(a,c){if(w[a]=c,/(layout|page|widget)\/([\w|-]+)\/\2.js$/.test(a)){var mod=k[a]||(k[a]={exports:{}});"function"==typeof c&&c.apply(mod,[require,mod.exports,mod])}var v=h[a];if(v){for(var i=v.length-1;i>=0;--i)v[i]();delete h[a]}},require=function(a){a=require.alias(a);var mod=k[a];if(mod)return mod.exports;var c=w[a];if(!c)throw Error("Cannot find module `"+a+"`");mod=k[a]={exports:{}};var v="function"==typeof c?c.apply(mod,[require,mod.exports,mod]):c;return v&&(mod.exports=v),mod.exports},require.async=function(g,y){function h(a){for(var i=a.length-1;i>=0;--i){var g=a[i];if(!(g in w||g in E)){E[g]=!0,j++,c(g,k);var y=v[g];y&&"deps"in y&&h(y.deps)}}}function k(){if(0==j--){var i,n,c=[];for(i=0,n=g.length;n>i;++i)c[i]=require(g[i]);y&&y.apply(a,c)}}"string"==typeof g&&(g=[g]);for(var i=g.length-1;i>=0;--i)g[i]=require.alias(g[i]);var E={},j=0;h(g),k()},require.resourceMap=function(a){v=a.res||{},g=a.pkg||{}},require.alias=function(a){return a}}(window);
+var require, define;
+
+(function(self) {
+    var head = document.getElementsByTagName('head')[0],
+        loadingMap = {},
+        factoryMap = {},
+        modulesMap = {},
+        scriptsMap = {},
+        resMap, pkgMap;
+
+
+    function loadScript(id, callback) {
+        var queue = loadingMap[id] || (loadingMap[id] = []);
+        queue.push(callback);
+
+        //
+        // load this script
+        //
+        var res = resMap[id] || {};
+        var url = res.pkg
+                    ? pkgMap[res.pkg].uri
+                    : (res.uri || id);
+
+        if (! (url in scriptsMap))  {
+            scriptsMap[url] = true;
+
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = url;
+            head.appendChild(script);
+        }
+    }
+
+    define = function(id, factory) {
+        factoryMap[id] = factory;
+
+
+        //如果是开发模板目录下的js，直接执行
+        if(/(layout|page|widget)\/([\w|-]+)\/\2.js$/.test(id)){
+            var mod = modulesMap[id] || (modulesMap[id] = {
+                'exports': {}
+            });
+
+            (typeof factory == 'function')
+                && factory.apply(mod, [require, mod.exports, mod]);
+        }
+
+
+        var queue = loadingMap[id];
+        if (queue) {
+            for(var i = queue.length - 1; i >= 0; --i) {
+                queue[i]();
+            }
+            delete loadingMap[id];
+        }
+    };
+
+    require = function(id) {
+        id = require.alias(id);
+
+        var mod = modulesMap[id];
+        if (mod) {
+            return mod.exports;
+        }
+
+        //
+        // init module
+        //
+        var factory = factoryMap[id];
+        if (!factory) {
+            throw Error('Cannot find module `' + id + '`');
+        }
+
+        mod = modulesMap[id] = {
+            'exports': {}
+        };
+
+        //
+        // factory: function OR value
+        //
+        var ret = (typeof factory == 'function')
+                ? factory.apply(mod, [require, mod.exports, mod])
+                : factory;
+
+        if (ret) {
+            mod.exports = ret;
+        }
+        return mod.exports;
+    };
+
+    require.async = function(names, callback) {
+        if (typeof names == 'string') {
+            names = [names];
+        }
+        
+        for(var i = names.length - 1; i >= 0; --i) {
+            names[i] = require.alias(names[i]);
+        }
+
+        var needMap = {};
+        var needNum = 0;
+
+        function findNeed(depArr) {
+            for(var i = depArr.length - 1; i >= 0; --i) {
+                //
+                // skip loading or loaded
+                //
+                var dep = depArr[i];
+                if (dep in factoryMap || dep in needMap) {
+                    continue;
+                }
+
+                needMap[dep] = true;
+                needNum++;
+                loadScript(dep, updateNeed);
+
+                var child = resMap[dep];
+                if (child && 'deps' in child) {
+                    findNeed(child.deps);
+                }
+            }
+        }
+
+        function updateNeed() {
+            if (0 == needNum--) {
+                var i, n, args = [];
+                for(i = 0, n = names.length; i < n; ++i) {
+                    args[i] = require(names[i]);
+                }
+                callback && callback.apply(self, args);
+            }
+        }
+        
+        findNeed(names);
+        updateNeed();
+    };
+
+    require.resourceMap = function(obj) {
+        resMap = obj['res'] || {};
+        pkgMap = obj['pkg'] || {};
+    };
+
+    require.alias = function(id) {return id};
+
+})(window);

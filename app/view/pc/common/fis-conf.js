@@ -1,5 +1,10 @@
-var now = new Date();
-var time = [now.getFullYear(), now.getMonth()+1, now.getDate(), now.getHours() , now.getMinutes(), now.getSeconds()].join("");
+/**
+ * @author [dbxiao]
+ * @data   [2015-08]
+ * @desc   [hi，friends！
+ *          xstack使用xbear作为编译和发布工具，
+ *          想了解更过xbear，请访问：https://github.com/dbxiao/xbear]
+ */
 
 var product = "pc",
     namespace = "common";
@@ -7,64 +12,40 @@ var product = "pc",
 fis.config.merge({
     product : product,
     namespace : namespace,
-    project : { md5Length : 8 },
-    roadmap : {
-        path : [
-            /**
-             * 模板编译规则
-             */
+
+    roadmap:{
+        path:[
+            /*** 模板编译规则（将所有html文件发布到view目录）*/
             {
                 reg : /^\/(page|layout|widget)\/(.+\.html)$/i,
                 isMod : false,
                 release : '/view/${product}/${namespace}/$1/$2',
                 id : '$1/$2'
             },
-            /**
-             * 静态文件编译规则
-             */
+            /*** 静态文件编译规则（将所有静态文件发布到static目录）*/
             {
                 reg : /^\/(page|layout|widget|static)\/(.*\.(js|css|jpg|png|gif|tpl))$/i,
                 isMod : false,
                 release : '/static/${product}/${namespace}/$1/$2',
-                id : '$1/$2',
-                query : "?t="+time
+                id : '$1/$2'
             }
         ]
     },
-    settings : {
-        optimizer : {
-            "uglify-js" : {
-                mangle: {
-                    except: "exports, module, require, define"
-                }
-            }
-        },
-        postprocessor : {
-            jswrapper : {
-                type:'amd'
-            }
-        }
-    },
-    modules : {
-        parser : {
-            css : ["less"]
-        },
-        postpackager : "simple"
-    },
+
+    /** pack:打包策略 */
     pack : {
-        //base-all.js
         "static/js/import/base-all.js": [
             /static\/js\/lib\/(.*?).js$/,
             /static\/js\/extend\/(.*?).js$/,
             /static\/js\/util\/(.*?).js$/
         ],
-        //base-all.css
         "static/css/import/base-all.css": [
             /static\/css\/(.*?).css$/
         ]
     },
+
+    /** 发布策略 */
     deploy : {
-        //fis relase -wopd local //o: 压缩，p：合并，d：发布
         local : [
             {
                 from : "/view",
@@ -78,7 +59,7 @@ fis.config.merge({
             }
         ],
         online : [
-
+            //发布到线上地址策略
         ]
     }
 });

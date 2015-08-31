@@ -1,5 +1,6 @@
 var static_url = "/static/pc/common/static/js";
 //lib
+!document.write("<script src='"+static_url+"/lib/mod.js'></script>");
 !document.write("<script src='"+static_url+"/lib/zepto.js'></script>");
 !document.write("<script src='"+static_url+"/lib/underscore.js'></script>");
 !document.write("<script src='"+static_url+"/lib/md5.js'></script>");

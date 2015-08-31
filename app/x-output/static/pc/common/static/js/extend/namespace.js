@@ -1,1 +1,62 @@
-!function(){"undefined"==typeof webos&&(window.webos={page:{},widget:{},data:{},util:{},common:{}}),webos.uniqueId=0,webos.obtainId=function(){return"_webos_"+ ++webos.uniqueId},$.stringify=function(a){var t=typeof a;if("object"!=t||null===a)return"string"==t&&(a='"'+a+'"'),String(a);var n,w,c=[],g=a&&a.constructor==Array;for(n in a)w=a[n],t=typeof w,a.hasOwnProperty(n)&&("string"==t?w='"'+w+'"':"object"==t&&null!==w&&(w=$.stringify(w)),c.push((g?"":'"'+n+'":')+String(w)));return(g?"[":"{")+String(c)+(g?"]":"}")},$.parseJSON=function(a){var w=/^[\],:{}\s]*$/,c=/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g,g=/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,b=/(?:^|:|,)(?:\s*\[)+/g;return"object"==typeof a?a:"string"==typeof a&&a?(a=$.trim(a),w.test(a.replace(c,"@").replace(g,"]").replace(b,""))?window.JSON&&window.JSON.parse?window.JSON.parse(a):new Function("return "+a)():void 0):null}}();
+(function(){
+    //local namespace
+    if (typeof webos == "undefined") {
+        window.webos  = {
+            page   : {},
+            widget : {},
+            data   : {},
+            util   : {},
+            common : {}
+        };
+    };
+    webos.uniqueId = 0;
+    webos.obtainId = function() {
+        return "_webos_" + (++webos.uniqueId);
+    };
+    //over wirte
+    $.stringify = function stringify(obj) {
+        var t = typeof (obj);
+        if (t != "object" || obj === null) {
+            // simple data type
+            if (t == "string") obj = '"' + obj + '"';
+            return String(obj);
+        } else {
+            // recurse array or object
+            var n, v, json = [], arr = (obj && obj.constructor == Array);
+
+            for (n in obj) {
+                v = obj[n];
+                t = typeof(v);
+                if (obj.hasOwnProperty(n)) {
+                    if (t == "string") v = '"' + v + '"'; else if (t == "object" && v !== null) v = $.stringify(v);
+                    json.push((arr ? "" : '"' + n + '":') + String(v));
+                }
+            }
+            return (arr ? "[" : "{") + String(json) + (arr ? "]" : "}");
+        }
+    };
+    //over wirte
+    $.parseJSON = function( data ) {
+        var rvalidchars = /^[\],:{}\s]*$/,
+            rvalidescape = /\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g,
+            rvalidtokens = /"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,
+            rvalidbraces = /(?:^|:|,)(?:\s*\[)+/g;
+            
+        if ( typeof data === "object"){
+            return data;
+        }
+        
+        if ( typeof data !== "string" || !data ) {
+            return null;
+        }
+        data = $.trim( data );
+        if ( rvalidchars.test(data.replace(rvalidescape, "@")
+            .replace(rvalidtokens, "]")
+            .replace(rvalidbraces, "")) ) {
+            return window.JSON && window.JSON.parse ?
+                window.JSON.parse( data ) :
+                (new Function("return " + data))();
+        } else {
+        }
+    };
+})();

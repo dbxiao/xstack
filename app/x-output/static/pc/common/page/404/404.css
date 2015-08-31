@@ -1,1 +1,15 @@
-body{background:#000}.main{margin:66px;width:218px;margin:20% auto 0}.main .text{width:218px;height:66px;margin:0 auto;background:url(/static/pc/common/page/404/images/logo.png?t=201581319338) no-repeat;text-indent:-9999em}
+body {
+  background: #000000;
+}
+.main {
+  margin: 66px;
+  width: 218px;
+  margin: 20% auto 0 auto;
+}
+.main .text {
+  width: 218px;
+  height: 66px;
+  margin: 0 auto;
+  background: url(/static/pc/common/page/404/images/logo.png?t=2015831225050) no-repeat;
+  text-indent: -9999em;
+}
