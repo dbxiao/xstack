@@ -6,14 +6,14 @@
  *          想了解更过xbear，请访问：https://github.com/dbxiao/xbear]
  */
 
-var product = "pc",
+var product   = "pc",
     namespace = "home";
 
 fis.config.merge({
-    product: product,
-    namespace: namespace,
+    product : product,
+    namespace : namespace,
 
-    /** pack:打包策略 */
+    /** 打包策略 */
     pack : {
         'pkg/home_widget.js': [
             /widget\/(.*?).js$/
@@ -28,11 +28,13 @@ fis.config.merge({
         local: [{
             from: "/view",
             include: '**.html',
-            to: "../../../x-output/"
+            to: "../../../x-output/",
+            subOnly : true
         }, {
-            from: "/static",
+            from: "/res",
             include: /.*\.(?:js|css|png|jpg|gif|tpl).*/,
-            to: "../../../x-output/"
+            to: "../../../x-output/",
+            subOnly : true
         }]
     }
 });

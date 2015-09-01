@@ -15,15 +15,9 @@ GLOBAL.nodeConf = {
     //app目录
     APP_DIR : path.join( ROOT_DIR , "./app" ),
     
-    
     //静态资源目录
-    // STATIC_DIR : path.join( ROOT_DIR ,"./app/view" ),
-    // //模版文件目录
-    // VIEW_DIR : path.join( ROOT_DIR , "./app/view" ),
-    
-    //压缩文件静态资源目录
-    STATIC_DIR : path.join( ROOT_DIR ,"./app/x-output/" ),
-    //压缩模版文件目录
+    STATIC_DIR : path.join( ROOT_DIR ,"./app/x-output/res" ),
+    //模版文件目录
     VIEW_DIR : path.join( ROOT_DIR , "./app/x-output/view/" ),
     
     

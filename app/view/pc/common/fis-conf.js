@@ -6,16 +6,17 @@
  *          想了解更过xbear，请访问：https://github.com/dbxiao/xbear]
  */
 
-var product = "pc",
+var product   = "pc",
     namespace = "common";
 
 fis.config.merge({
     product : product,
     namespace : namespace,
 
+    /** 覆盖xbear roadmap配置 */
     roadmap:{
         path:[
-            /*** 模板编译规则（将所有html文件发布到view目录）*/
+            /*** 模板编译规则（将所有html文件发布到res目录）*/
             {
                 reg : /^\/(page|layout|widget)\/(.+\.html)$/i,
                 isMod : false,
@@ -26,13 +27,13 @@ fis.config.merge({
             {
                 reg : /^\/(page|layout|widget|static)\/(.*\.(js|css|jpg|png|gif|tpl))$/i,
                 isMod : false,
-                release : '/static/${product}/${namespace}/$1/$2',
+                release : '/res/${product}/${namespace}/$1/$2',
                 id : '$1/$2'
             }
         ]
     },
 
-    /** pack:打包策略 */
+    /** 打包策略 */
     pack : {
         "static/js/import/base-all.js": [
             /static\/js\/lib\/(.*?).js$/,
@@ -50,12 +51,14 @@ fis.config.merge({
             {
                 from : "/view",
                 include : '**.html',
-                to : "../../../x-output/"
+                to : "../../../x-output/",
+                subOnly : true
             },
             {
-                from : "/static",
+                from : "/res",
                 include : /.*\.(?:js|css|png|jpg|gif|tpl).*/,
-                to : "../../../x-output/"
+                to : "../../../x-output/",
+                subOnly : true
             }
         ],
         online : [
