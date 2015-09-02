@@ -1,0 +1,62 @@
+{
+    "res": {
+        "home:page/home/home.css": {
+            "uri": "/res/pc/home/page/home/home.css?t=201592171424",
+            "type": "css"
+        },
+        "home:page/home/home.html": {
+            "uri": "/view/pc/home/page/home/home.html",
+            "type": "html",
+            "deps": [
+                "home:page/home/home.js",
+                "home:page/home/home.css"
+            ]
+        },
+        "home:page/home/home.js": {
+            "uri": "/res/pc/home/page/home/home.js?t=201592171424",
+            "type": "js",
+            "deps": [
+                "home:page/home/home.css"
+            ]
+        },
+        "home:page/index/index.css": {
+            "uri": "/res/pc/home/page/index/index.css?t=201592171424",
+            "type": "css"
+        },
+        "home:page/index/index.html": {
+            "uri": "/view/pc/home/page/index/index.html",
+            "type": "html",
+            "deps": [
+                "home:page/index/index.js",
+                "home:page/index/index.css"
+            ]
+        },
+        "home:page/index/index.js": {
+            "uri": "/res/pc/home/page/index/index.js?t=201592171424",
+            "type": "js",
+            "deps": [
+                "home:page/index/index.css"
+            ]
+        },
+        "home:widget/header/header.css": {
+            "uri": "/res/pc/home/widget/header/header.css?t=201592171424",
+            "type": "css"
+        },
+        "home:widget/header/header.html": {
+            "uri": "/view/pc/home/widget/header/header.html",
+            "type": "html",
+            "deps": [
+                "home:widget/header/header.js",
+                "home:widget/header/header.css"
+            ]
+        },
+        "home:widget/header/header.js": {
+            "uri": "/res/pc/home/widget/header/header.js?t=201592171424",
+            "type": "js",
+            "deps": [
+                "home:widget/header/header.css"
+            ]
+        }
+    },
+    "pkg": {}
+}

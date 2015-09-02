@@ -6,8 +6,15 @@
  */
 var path = require('path');
 var ROOT_DIR = path.join( process.argv[1] || __dirname, '../');
+var RES = "res";
+var VIEW = "view";
 
 GLOBAL.nodeConf = {
+
+    //静态目录名称
+    RES : RES,
+    //模板目录名称
+    VIEW : VIEW,
     //服务端口
     PORT : 18080,
     //模板引擎格式
@@ -16,9 +23,9 @@ GLOBAL.nodeConf = {
     APP_DIR : path.join( ROOT_DIR , "./app" ),
     
     //静态资源目录
-    STATIC_DIR : path.join( ROOT_DIR ,"./app/x-output/res" ),
+    STATIC_DIR : path.join( ROOT_DIR ,"./app/x-output/" + RES + "/" ),
     //模版文件目录
-    VIEW_DIR : path.join( ROOT_DIR , "./app/x-output/view/" ),
+    VIEW_DIR : path.join( ROOT_DIR , "./app/x-output/" + VIEW + "/"),
     
     
     //extend目录

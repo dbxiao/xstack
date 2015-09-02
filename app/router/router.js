@@ -12,7 +12,7 @@ var routerAction = require('./lib/routerAction.js');
 //检查路由配置
 var routerHost   = require('./lib/routerHost.js');
 //定义默认的title
-var title             = "Xstack!";
+var title        = "xstack!";
 
 //format绝对路径
 var directPath = function(path){
@@ -30,17 +30,17 @@ var initAction = function(req, res, next){
     var act    = routerAction(reqPath);
     var server = "";
 
-    if(act.server && !act.view){
+    if(act.server && !act.view){ //server
         server = require(directPath(act.server));
         server(req, res, next);
-    }else if(act.server && act.view){
+    }else if(act.server && act.view){ //server && view
         server = require(directPath(act.server));
         server(req, res, next, act.view);
-    }else if(!act.server && act.view){
+    }else if(!act.server && act.view){ //view
         res.render(act.view , {
             title : title
         });
-    }else {
+    }else { //next
         next();
     }
 };

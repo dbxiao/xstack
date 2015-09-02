@@ -1,0 +1,23 @@
+body {
+  background: #000000;
+}
+.main {
+  width: auto;
+  margin: 15% auto 0 auto;
+}
+.main .text {
+  height: 60px;
+  margin: 0 auto;
+  font-size: 60px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 60px;
+}
+.main .text .red {
+  color: red;
+  font-weight: 700;
+}
+.main .desc {
+  text-align: center;
+  margin-top: 20px;
+}

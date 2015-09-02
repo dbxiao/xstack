@@ -26,7 +26,7 @@ var routerAction = function(_path) {
         if (_path.match(routerAgent[x].path)) {
             action = routerAgent[x];
             break;
-        } else if (_path.match(/^(\/webroot\/static)/gi)) {
+        } else if (_path.match(new RegExp("/"+GLOBAL.nodeConf.RES+"/"))){
             action.view = "";
             break;
         } else {

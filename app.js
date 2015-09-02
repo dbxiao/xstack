@@ -4,11 +4,11 @@
 * @module:app
 * @function:nodeJS主程序，开启服务执行：node app
 */
+
+
 ////////////////////////////////////////////////
 //============  module 引入    =================//
 ////////////////////////////////////////////////
-
-
 //提供全局配置
 var globalConfig = require('./config/globalConfig');
 //提供WEB框架服务
@@ -49,10 +49,10 @@ app.set('view engine', GLOBAL.nodeConf.VIEWS_ENGINE);
 app.use(multipart({
     uploadDir : './app/webroot/upload',
     keepExtensions : true,
-    limit : 5 * 1024 * 1024
+    limit : 8 * 1024 * 1024 //文件限制5M
 }));
 //express 静态文件目录定义STATIC_DIR
-app.use(express.static(GLOBAL.nodeConf.STATIC_DIR));
+app.use("/"+GLOBAL.nodeConf.RES, express.static(GLOBAL.nodeConf.STATIC_DIR));
 //express 页面icon定义
 app.use(favicon());
 app.use(bodyParser.urlencoded({

@@ -1,98 +1,98 @@
 {
     "res": {
         "common:page/404/404.css": {
-            "uri": "/static/pc/common/page/404/404.css?t=2015831225050",
+            "uri": "/res/pc/common/page/404/404.css?t=201592171422",
             "type": "css"
         },
         "common:page/404/404.js": {
-            "uri": "/static/pc/common/page/404/404.js?t=2015831225050",
+            "uri": "/res/pc/common/page/404/404.js?t=201592171422",
             "type": "js",
             "deps": [
                 "common:page/404/404.css"
             ]
         },
         "common:static/css/global/global.css": {
-            "uri": "/static/pc/common/static/css/global/global.css?t=2015831225050",
+            "uri": "/res/pc/common/static/css/global/global.css?t=201592171422",
             "type": "css"
         },
         "common:static/css/global/reset.css": {
-            "uri": "/static/pc/common/static/css/global/reset.css?t=2015831225050",
+            "uri": "/res/pc/common/static/css/global/reset.css?t=201592171422",
             "type": "css"
         },
         "common:static/css/import/base-all.css": {
-            "uri": "/static/pc/common/static/css/import/base-all.css?t=2015831225050",
+            "uri": "/res/pc/common/static/css/import/base-all.css?t=201592171422",
             "type": "css"
         },
         "common:static/css/lib/bootstrap.css": {
-            "uri": "/static/pc/common/static/css/lib/bootstrap.css?t=2015831225050",
+            "uri": "/res/pc/common/static/css/lib/bootstrap.css?t=201592171422",
             "type": "css"
         },
         "common:static/css/ui/button.css": {
-            "uri": "/static/pc/common/static/css/ui/button.css?t=2015831225050",
+            "uri": "/res/pc/common/static/css/ui/button.css?t=201592171422",
             "type": "css"
         },
         "common:static/css/ui/select.css": {
-            "uri": "/static/pc/common/static/css/ui/select.css?t=2015831225050",
+            "uri": "/res/pc/common/static/css/ui/select.css?t=201592171422",
             "type": "css"
         },
         "common:static/css/ui/switch.css": {
-            "uri": "/static/pc/common/static/css/ui/switch.css?t=2015831225050",
+            "uri": "/res/pc/common/static/css/ui/switch.css?t=201592171422",
             "type": "css"
         },
         "common:static/js/extend/namespace.js": {
-            "uri": "/static/pc/common/static/js/extend/namespace.js?t=2015831225050",
+            "uri": "/res/pc/common/static/js/extend/namespace.js?t=201592171422",
             "type": "js"
         },
         "common:static/js/import/base-all.js": {
-            "uri": "/static/pc/common/static/js/import/base-all.js?t=2015831225050",
+            "uri": "/res/pc/common/static/js/import/base-all.js?t=201592171422",
             "type": "js"
         },
         "common:static/js/lib/html5.js": {
-            "uri": "/static/pc/common/static/js/lib/html5.js?t=2015831225050",
+            "uri": "/res/pc/common/static/js/lib/html5.js?t=201592171422",
             "type": "js"
         },
         "common:static/js/lib/md5.js": {
-            "uri": "/static/pc/common/static/js/lib/md5.js?t=2015831225050",
+            "uri": "/res/pc/common/static/js/lib/md5.js?t=201592171422",
             "type": "js"
         },
         "common:static/js/lib/mod.js": {
-            "uri": "/static/pc/common/static/js/lib/mod.js?t=2015831225050",
+            "uri": "/res/pc/common/static/js/lib/mod.js?t=201592171422",
             "type": "js"
         },
         "common:static/js/lib/storage.js": {
-            "uri": "/static/pc/common/static/js/lib/storage.js?t=2015831225050",
+            "uri": "/res/pc/common/static/js/lib/storage.js?t=201592171422",
             "type": "js"
         },
         "common:static/js/lib/underscore.js": {
-            "uri": "/static/pc/common/static/js/lib/underscore.js?t=2015831225050",
+            "uri": "/res/pc/common/static/js/lib/underscore.js?t=201592171422",
             "type": "js"
         },
         "common:static/js/lib/zepto.js": {
-            "uri": "/static/pc/common/static/js/lib/zepto.js?t=2015831225050",
+            "uri": "/res/pc/common/static/js/lib/zepto.js?t=201592171422",
             "type": "js"
         },
         "common:static/js/third/qc_loader.js": {
-            "uri": "/static/pc/common/static/js/third/qc_loader.js?t=2015831225050",
+            "uri": "/res/pc/common/static/js/third/qc_loader.js?t=201592171422",
             "type": "js"
         },
         "common:static/js/util/broadcast.js": {
-            "uri": "/static/pc/common/static/js/util/broadcast.js?t=2015831225050",
+            "uri": "/res/pc/common/static/js/util/broadcast.js?t=201592171422",
             "type": "js"
         },
         "common:static/js/util/error.js": {
-            "uri": "/static/pc/common/static/js/util/error.js?t=2015831225050",
+            "uri": "/res/pc/common/static/js/util/error.js?t=201592171422",
             "type": "js"
         },
         "common:static/js/util/postman.js": {
-            "uri": "/static/pc/common/static/js/util/postman.js?t=2015831225050",
+            "uri": "/res/pc/common/static/js/util/postman.js?t=201592171422",
             "type": "js"
         },
         "common:static/js/util/restAPI.js": {
-            "uri": "/static/pc/common/static/js/util/restAPI.js?t=2015831225050",
+            "uri": "/res/pc/common/static/js/util/restAPI.js?t=201592171422",
             "type": "js"
         },
         "common:static/js/util/util.js": {
-            "uri": "/static/pc/common/static/js/util/util.js?t=2015831225050",
+            "uri": "/res/pc/common/static/js/util/util.js?t=201592171422",
             "type": "js"
         }
     },

@@ -1,1 +1,0 @@
-define("home:page/home/home.js",function(){var h=function(){this.init()};h.prototype={init:function(){}},new h});

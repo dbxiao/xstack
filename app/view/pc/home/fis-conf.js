@@ -28,13 +28,11 @@ fis.config.merge({
         local: [{
             from: "/view",
             include: '**.html',
-            to: "../../../x-output/",
-            subOnly : true
+            to: "../../../x-output/"
         }, {
             from: "/res",
             include: /.*\.(?:js|css|png|jpg|gif|tpl).*/,
-            to: "../../../x-output/",
-            subOnly : true
+            to: "../../../x-output/"
         }]
     }
 });

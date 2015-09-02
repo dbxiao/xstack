@@ -1,1 +1,0 @@
-define("home:page/index/index.js",function(){var c=function(){this.init()};c.prototype={init:function(){}},new c});

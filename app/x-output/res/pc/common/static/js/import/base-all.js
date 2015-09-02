@@ -1,4 +1,4 @@
-var static_url = "/static/pc/common/static/js";
+var static_url = "/res/pc/common/static/js";
 //lib
 !document.write("<script src='"+static_url+"/lib/mod.js'></script>");
 !document.write("<script src='"+static_url+"/lib/zepto.js'></script>");
