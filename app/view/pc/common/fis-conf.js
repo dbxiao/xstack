@@ -6,61 +6,32 @@
  *          想了解更过xbear，请访问：https://github.com/dbxiao/xbear]
  */
 
-var product   = "pc",
-    namespace = "common";
+fis.set('product', 'pc');
+fis.set('namespace', 'common');
 
-fis.config.merge({
-    product : product,
-    namespace : namespace,
+fis.deploy.getLocalFisConf(fis.get("product"), fis.get("namespace"));
 
-    /** 覆盖xbear roadmap配置 */
-    roadmap:{
-        path:[
-            /*** 模板编译规则（将所有html文件发布到res目录）*/
-            {
-                reg : /^\/(page|layout|widget)\/(.+\.html)$/i,
-                isMod : false,
-                release : '/view/${product}/${namespace}/$1/$2',
-                id : '$1/$2'
-            },
-            /*** 静态文件编译规则（将所有静态文件发布到static目录）*/
-            {
-                reg : /^\/(page|layout|widget|static)\/(.*\.(js|css|jpg|png|gif|tpl))$/i,
-                isMod : false,
-                release : '/res/${product}/${namespace}/$1/$2',
-                id : '$1/$2'
-            }
-        ]
-    },
+// CSS合并规则
+fis.match('*.css', {
+    packTo: '/pkg/pak-'+fis.get("namespace")+'.css'
+});
 
-    /** 打包策略 */
-    pack : {
-        "static/js/import/base-all.js": [
-            /static\/js\/lib\/(.*?).js$/,
-            /static\/js\/extend\/(.*?).js$/,
-            /static\/js\/util\/(.*?).js$/
-        ],
-        "static/css/import/base-all.css": [
-            /static\/css\/(.*?).css$/
-        ]
-    },
+// JS合并规则
+fis.match('*.js', {
+    packTo: '/pkg/pak-'+fis.get("namespace")+'.js'
+});
 
-    /** 发布策略 */
-    deploy : {
-        local : [
-            {
-                from : "/view",
-                include : '**.html',
-                to : "../../../x-output/"
-            },
-            {
-                from : "/res",
-                include : /.*\.(?:js|css|png|jpg|gif|tpl).*/,
-                to : "../../../x-output/"
-            }
-        ],
-        online : [
-            //发布到线上地址策略
-        ]
-    }
+// 本地开发规则
+fis.match('*', {
+    deploy: fis.plugin('local-deliver', {
+        to: '../../../x-output/'
+    })
+});
+
+// cordova环境规则
+fis.media('cordova')
+   .match('*', {
+    deploy: fis.plugin('local-deliver', {
+        to: '../../../x-output/cordova/'
+    })
 });

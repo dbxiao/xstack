@@ -6,33 +6,24 @@
  *          想了解更过xbear，请访问：https://github.com/dbxiao/xbear]
  */
 
-var product   = "pc",
-    namespace = "home";
+fis.set('product', 'pc');
+fis.set('namespace', 'home');
 
-fis.config.merge({
-    product : product,
-    namespace : namespace,
+fis.deploy.getLocalFisConf(fis.get("product"), fis.get("namespace"));
 
-    /** 打包策略 */
-    pack : {
-        'pkg/home_widget.js': [
-            /widget\/(.*?).js$/
-        ],
-        'pkg/home_widget.css': [
-            /widget\/(.*?).css$/
-        ]
-    },
+// CSS合并规则
+fis.match('*.css', {
+    packTo: '/pkg/pak-'+fis.get("namespace")+'.css'
+});
 
-    /** 发布策略 */
-    deploy : {
-        local: [{
-            from: "/view",
-            include: '**.html',
-            to: "../../../x-output/"
-        }, {
-            from: "/res",
-            include: /.*\.(?:js|css|png|jpg|gif|tpl).*/,
-            to: "../../../x-output/"
-        }]
-    }
+// JS合并规则
+fis.match('*.js', {
+    packTo: '/pkg/pak-'+fis.get("namespace")+'.js'
+});
+
+// 本地开发规则
+fis.match('*', {
+    deploy: fis.plugin('local-deliver', {
+        to: '../../../x-output/'
+    })
 });

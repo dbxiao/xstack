@@ -7,7 +7,7 @@
 
 
 ////////////////////////////////////////////////
-//============  module 引入    =================//
+//============  module 引入    ===============//
 ////////////////////////////////////////////////
 //提供全局配置
 var globalConfig = require('./config/globalConfig');
@@ -29,6 +29,7 @@ var multipart = require('connect-multiparty');
 var router = require(GLOBAL.nodeConf.ROUT_DIR + 'router');
 //实例化app服务
 var app = express();
+
 /** socket */
 // var server = http.createServer(app).listen(GLOBAL.nodeConf.PORT);
 // //io
@@ -49,7 +50,7 @@ app.set('view engine', GLOBAL.nodeConf.VIEWS_ENGINE);
 app.use(multipart({
     uploadDir : './app/webroot/upload',
     keepExtensions : true,
-    limit : 8 * 1024 * 1024 //文件限制5M
+    limit : 8 * 1024 * 1024 //文件限制8M
 }));
 //express 静态文件目录定义STATIC_DIR
 app.use("/"+GLOBAL.nodeConf.RES, express.static(GLOBAL.nodeConf.STATIC_DIR));
