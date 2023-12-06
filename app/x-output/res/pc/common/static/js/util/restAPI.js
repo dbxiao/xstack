@@ -1,1 +1,0 @@
-!function(){var p={SET_PASS_SIGNUP:"/api/passport/signup",SET_PASS_LOGIN:"/api/passport/login",GET_PASS_SIGNMAIL:"/api/passport/forget",GET_PASS_RESET:"/api/passport/forget_reset"};webos.common.restAPI=p}();

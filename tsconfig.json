@@ -1,0 +1,40 @@
+{
+    "compilerOptions": {
+        "module": "CommonJS",
+        "target": "ES6",
+        "rootDir": "./",
+        "outDir": "./dist",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,     
+        "allowJs": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "baseUrl": "./",
+        "paths": {
+            "@database/*": ["app/database/*"],
+            "@plugin/*": ["app/plugin/*"],
+            "@router/*": ["app/router/*"],
+            "@server/*": ["app/server/*"],
+            "@config/*": ["config/*"],
+        }
+    },
+    "files": [
+        "static.d.ts",
+    ],
+    "include": [
+        "app/*",
+        "config/*",
+        "package.json",
+        "tsconfig.json", 
+        "static.d.ts",
+    ],
+    "exclude": [
+        "node_modules/*",
+        "dist/*",
+        "test/*",
+        "logs",
+        "**/*.spec.ts",
+        "**/*.spec.js",
+    ]
+}

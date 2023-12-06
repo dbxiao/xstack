@@ -1,1 +1,0 @@
-!function(){var o={setPassSignup:function(o,n){try{$.get(webos.common.restAPI.SET_PASS_SIGNUP,o,function(o){"function"==typeof n&&n(o)})}catch(t){console.log(t)}},setPassLogin:function(o,n){try{$.get(webos.common.restAPI.SET_PASS_LOGIN,o,function(o){"function"==typeof n&&n(o)})}catch(t){console.log(t)}}};webos.common.postman=o}();
