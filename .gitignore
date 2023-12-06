@@ -10,7 +10,9 @@ lerna-debug.log*
 node_modules
 webroot/res/*
 webroot/view/*
+!webroot/view/403.html
 !webroot/view/404.html
+!webroot/view/500.html
 
 # Build
 build
