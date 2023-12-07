@@ -2,6 +2,8 @@
     "compilerOptions": {
         "module": "CommonJS",
         "target": "ES6",
+        "sourceMap": true,
+        "baseUrl": "./",
         "rootDir": "./",
         "outDir": "./dist",
         "allowSyntheticDefaultImports": true,
@@ -10,13 +12,17 @@
         "forceConsistentCasingInFileNames": true,
         "strict": true,
         "skipLibCheck": true,
-        "baseUrl": "./",
         "paths": {
+            "@database": ["app/database/"],
+            "@plugin": ["app/plugin/"],
+            "@router": ["app/router/"],
+            "@server": ["app/server/"],
+            "@config": ["config/"],
             "@database/*": ["app/database/*"],
             "@plugin/*": ["app/plugin/*"],
             "@router/*": ["app/router/*"],
             "@server/*": ["app/server/*"],
-            "@config/*": ["config/*"],
+            "@config/*": ["config/*"]
         }
     },
     "files": [

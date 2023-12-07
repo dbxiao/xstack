@@ -12,7 +12,7 @@ import express, { json } from 'express'
 import compression from 'compression' 
 import cookieParser from 'cookie-parser'
 import ejs from 'ejs'
-import router from '@router/router'
+import { router } from '@router'
 import serverConf from '@config/server.conf'
 
 const { PORT, RES, STATIC_DIR } = serverConf

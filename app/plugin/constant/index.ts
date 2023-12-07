@@ -1,2 +1,1 @@
-import { Code } from './code'
-export { Code }
+export * from './code'

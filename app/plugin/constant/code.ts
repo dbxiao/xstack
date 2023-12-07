@@ -1,6 +1,10 @@
 /**
- * @author dbxiao
- * @descript 错误码集合
+ * @author dbxiao@foxmail.com
+ * @description Global error code collection that allows you to unify manage and use all error codes of web service. 
+ * Please modify and define it according to the project background.
+ * @example
+ * import { Code } from '@plugin/constant';
+ * console.log(Code[403].msg)
  */
 
 export const Code = {

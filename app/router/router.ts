@@ -1,22 +1,21 @@
 /**
- * @author dbxiao
- * @description router manager
- * @copyright 2023 dbxiao
+ * @author dbxiao@foxmail.com
+ * @description This function provides the XStack routing middleware service. 
+ * It separates the middleware functionality into an independent service that is customizable
+ * and scalable to adapt to different project scenarios.
  */
-
 import dotenv from 'dotenv'
 import express, { Request, Response, NextFunction } from 'express'
-import { routerMaps, RouterMapsProps } from '@router/conf/routerMaps'
+import { routerMaps, RouterMapsProps } from '@router/index'
 import { Console, isClass, matchPath } from '@plugin/libs'
-import { Code } from '@plugin/constant/code'
 dotenv.config()
 const router = express.Router()
 
 /**
- * 请求业务处理
- * @param {Object} req 请求参数
- * @param {Object} res 返回值参数
- * @param {Object} next
+ * Request processing function
+ * @param {Object} req Request
+ * @param {Object} res Response
+ * @param {Object} next next function
  */
 const routerAction = (req: Request, res: Response, next: NextFunction) => {
     // Get the request path from 'req'.
@@ -25,7 +24,7 @@ const routerAction = (req: Request, res: Response, next: NextFunction) => {
     const targetRoute: RouterMapsProps = routerMaps.find((item) => {
         const { path } = item
         return matchPath(path, reqPath)
-    }) || { path: '/404' }
+    }) || { path: '/404', view: '404.html' }
     // Extract the 'server' and 'view' properties from 'targetRoute'
     const { server, view } = targetRoute
 
@@ -43,7 +42,7 @@ const routerAction = (req: Request, res: Response, next: NextFunction) => {
         res.render(view)
     } else {
         // No view. send 404 msg
-        res.render('404.html')
+        return next()
     }
 
     Console.log(`@routerAction::targetRoute: ${JSON.stringify(targetRoute)} ]`)

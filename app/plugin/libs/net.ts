@@ -1,7 +1,7 @@
 import os from 'os'
 const net = {
     /**
-     * 获取本地IP地址
+     * Obtain The Local IP Address
      */
     getLocalIPAddr: () => {
         var interfaces = os.networkInterfaces()

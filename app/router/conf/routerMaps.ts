@@ -1,24 +1,16 @@
-import page404 from '@server/product/404'
 import test from '@server/product/test'
-
-export interface RouterMapsProps {
-    path: string
-    server?: Function | any
-    view?: string
-}
+import { defaultRoute } from '../conf/default'
+import { RouterMapsProps } from '../types'
 
 export const routerMaps: RouterMapsProps[] = [
     {
         'path': '^/$',
-        'view': 'index.html',
+        'view': '404.html',
     }, {
         'path': '/abc/:id$',
         'server': test,
-        'view': 'index.html',
+        'view': '403.html',
     },
-    {
-        'path': '/abc',
-        'server': test,
-        'view': 'index.html',
-    }
+    ...defaultRoute
 ]
+

@@ -6,12 +6,19 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "tsc --watch",
-        "start": "tsc --watch & nodemon start --inspect ./dist/app/app.js  NODE_ENV=development",
-        "dev": "tsc --watch & pm2 start ecosystem.config.js --env development"
+        "start": "tsc --watch & node --inspect ./dist/app/app.js  NODE_ENV=development",
+        "dev": "tsc --watch & pm2 start ecosystem.config.js --env development",
+        "prod": "tsc & pm2 start ecosystem.config.js --env production"
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
+    "keywords": [
+        "web",
+        "SSR",
+        "express",
+        "typescript",
+        "framswork"
+    ],
+    "author": "dbxiao@foxmail.com",
+    "license": "MIT",
     "_moduleAliases": {
         "@plugin": "./dist/app/plugin",
         "@database": "./dist/app/database",
@@ -20,8 +27,7 @@
         "@config": "./dist/config"
     },
     "dependencies": {
-        "@types/compression": "^1.7.5",
-        "@types/ejs": "^3.1.5",
+        "axios": "^1.6.2",
         "compression": "^1.7.4",
         "cookie-parser": "^1.4.6",
         "dotenv": "^16.3.1",
@@ -33,6 +39,9 @@
         "redis": "^4.6.11"
     },
     "devDependencies": {
+        "@types/compression": "^1.7.5",
+        "@types/crypto-js": "^4.2.1",
+        "@types/ejs": "^3.1.5",
         "@types/cookie-parser": "^1.4.6",
         "@types/express": "^4.17.17",
         "@types/node": "^20.4.2",

@@ -1,6 +1,12 @@
+/**
+ * @author dbxiao@foxmail.com
+ * @description Wrap the Console object and replace global console with Console. Log messages to the console,
+ * including code position, line number, log level, and log content.
+ * Console support Browser and Nodejs environment.
+ */
 const console = global && global.console || window && window.console
 
-// 定义 Consoles 对象，包含 log、info、error、count、getStack 和 ISO8Time 方法
+// Define a Consoles object that includes log, info, error, count, getStack, and ISO8Time methods.
 const Consoles = {
     log: (...msg: any) => {
         console.log(`${Consoles.ISO8Time()} [LOG] [${Consoles.getStack()}] -- ${JSON.stringify(msg)}`)
@@ -15,7 +21,7 @@ const Consoles = {
         console.count(`${Consoles.ISO8Time()} [COUNT] [${Consoles.getStack()}] -- ${msg}`)
     },
     getStack: () => {
-        // 返回当前调用栈的第 3 行到第 4 行之间的代码行
+        // Return the code lines between the 3rd and 4th call stack.
         const stackTrace = new Error().stack;
         if (stackTrace) {
             return stackTrace.split('\n').slice(3, 4).join('\n').trim();
@@ -24,9 +30,10 @@ const Consoles = {
         }
     },
     ISO8Time: () => {
-        // 返回当前时间的 ISO8601 格式，并替换 'Z' 为 ''
+        // Return the current time in ISO8601 format and replace 'Z' with ''.
         const now = new Date()
-        now.setHours(now.getHours() + 8) // 将时间偏移东8
+        // Shift the time by 8 hours eastward to China time zone.
+        now.setHours(now.getHours() + 8) 
         return now.toISOString().replace('Z', '')
     }
 }
