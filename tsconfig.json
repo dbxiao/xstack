@@ -6,6 +6,7 @@
         "baseUrl": "./",
         "rootDir": "./",
         "outDir": "./dist",
+        "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,     
         "allowJs": true,
@@ -34,6 +35,7 @@
         "package.json",
         "tsconfig.json", 
         "static.d.ts",
+        "ecosystem.config.js"
     ],
     "exclude": [
         "node_modules/*",

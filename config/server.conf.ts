@@ -20,26 +20,23 @@ const serverConf = {
      STATIC_DIR: './webroot/' + RES + '/',
      // template files folder
      VIEW_DIR: './webroot/' + VIEW + '/',
-     // extend目录
-     EXT_DIR: './extend',
-     // config目录 
+     // config folder
      CONF_DIR: './config/',
      // database folder
      DATA_DIR: './app/database/',
      // Server folder
      SERV_DIR: './app/server/',
      // Router folder
-     ROUT_DIR: './app/router/',
+     ROUTER_DIR: './app/router/',
      // Temp folder
-     TEMP_DIR: './.temp/',
+     TEMP_DIR: './temp/',
      // Log folder
-     LOGS_DIR: './.logs/',
+     LOGS_DIR: './logs/',
      // Favicons
      FAVICONS_DIR: './config/favicon.ico',
-     // PORT
-     PORT: 18080,
-     // IP
-     IP: '127.0.0.1',
+     // DEV IP & PORT
+     DEV_IP: '127.0.0.1',
+     DEV_PORT: 18080,
 }
 
 export default serverConf

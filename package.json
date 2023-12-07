@@ -7,8 +7,8 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "tsc --watch",
         "start": "tsc --watch & node --inspect ./dist/app/app.js  NODE_ENV=development",
-        "dev": "tsc --watch & pm2 start ecosystem.config.js --env development",
-        "prod": "tsc & pm2 start ecosystem.config.js --env production"
+        "dev": "tsc --watch & npx pm2 start ./dist/ecosystem.config.js --env development",
+        "prod": "tsc & npx pm2 start ./dist/ecosystem.config.js --env production"
     },
     "keywords": [
         "web",

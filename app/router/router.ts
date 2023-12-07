@@ -4,11 +4,9 @@
  * It separates the middleware functionality into an independent service that is customizable
  * and scalable to adapt to different project scenarios.
  */
-import dotenv from 'dotenv'
 import express, { Request, Response, NextFunction } from 'express'
 import { routerMaps, RouterMapsProps } from '@router/index'
 import { Console, isClass, matchPath } from '@plugin/libs'
-dotenv.config()
 const router = express.Router()
 
 /**

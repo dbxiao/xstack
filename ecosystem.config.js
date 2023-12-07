@@ -1,15 +1,23 @@
+/**
+ * @author dbxiao@foxmail.com
+ * @description PM2 configuration, with default configuration for development, staging and production environments. 
+ * You can also add new test or other environments. See the start command in package.json -> script -> dev or prod.
+ */
+
 require('dotenv').config()
-const { PM2_WATCH, PM2_INSTANCES } = process.env
+const serverConf = require('./config/server.conf')
+const { PM2_WATCH = 'false', PM2_INSTANCES } = process.env
+const { DEV_IP, DEV_PORT, IP, PORT } = serverConf
 
 module.exports = {
     apps: [
         {
             // 名称
-            name: 'web-server',
+            name: 'xstack',
             // 应用程序目录
             cwd: './',
             // 启动入口
-            script: "./dist/app/app.js",
+            script: './dist/app/app.js',
             // 最大启动数
             instances: PM2_INSTANCES,
             // 启动形态
@@ -44,25 +52,14 @@ module.exports = {
             // 指定日志文件的时间格式
             log_date_format: '',
 
-            // 开发环境: pm2 start app.js --env_dev
+            // 开发环境: npx pm2 start ./dist/ecosystem.config.js --env development
             env_development: {
-                PORT: 8000,
-                IP: '127.0.0.1',
+                PORT: DEV_PORT,
+                IP: DEV_IP,
                 NODE_ENV: "development"
             },
-            // 测试环境
-            env_test: {
-                PORT: 9000,
-                IP: '127.0.0.1',
-                NODE_ENV: "test"
-            },
-            // 预发布环境 (sudo)
-            env_staging: {
-                PORT: 80,
-                IP: '0.0.0.0',
-                NODE_ENV: "staging"
-            },
-            // 生产环境 (sudo)
+
+            // 生产环境: npx pm2 start ./dist/ecosystem.config.js --env production
             env_production: {
                 PORT: 80,
                 IP: '0.0.0.0',

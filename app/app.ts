@@ -8,14 +8,17 @@
 
 // Register module alias
 require('module-alias/register')
+import dotenv from 'dotenv'
 import express, { json } from 'express'
 import compression from 'compression' 
 import cookieParser from 'cookie-parser'
 import ejs from 'ejs'
 import { router } from '@router'
 import serverConf from '@config/server.conf'
+dotenv.config()
 
-const { PORT, RES, STATIC_DIR } = serverConf
+const { PORT, IP } = process.env
+const { RES, STATIC_DIR, DEV_IP, DEV_PORT } = serverConf
 const app = express()
 const staticOptions = {
     etag: true,
@@ -38,7 +41,15 @@ app.use(compression())
 // Use routing module
 app.use(router)
 
-// Listen to the specified port
-app.listen(PORT, () => {
-    console.log(`Example app listening on port ${PORT}`)
-})
+console.log(process.env)
+// Listen to the specified port. On prod env use pm2 ecosystem.config.js port, otherwise use default port.
+if (PORT && IP) {
+    app.listen(Number(PORT), IP, () => {
+        console.log(`App production env: http://${IP}:${PORT}`)
+    })
+} else {
+    app.listen(DEV_PORT, DEV_IP, () => {
+        console.log(`App development env: http://${DEV_IP}:${DEV_PORT}`)
+    })
+}
+
