@@ -8,6 +8,7 @@ lerna-debug.log*
 # folder
 node_modules
 /webroot/res/*
+!webroot/res/libsx
 /webroot/view/*
 !webroot/view/403.html
 !webroot/view/404.html

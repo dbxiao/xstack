@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_libsx_cola=self.webpackChunk_libsx_cola||[]).push([[935],{37918:function(n,t,_){_.r(t);var o=_(44246),i=_(6805),u=_(11197),m=_(26660),a=_(1741),r=_(25742),b=_(9387),s=_(1040),p=_(50959),e=_(11527);function l(){var d=(0,s.eL)(),c=d.texts;return(0,e.jsx)(s.dY,{children:(0,e.jsx)(e.Fragment,{})})}t.default=l}}]);

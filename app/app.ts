@@ -41,7 +41,6 @@ app.use(compression())
 // Use routing module
 app.use(router)
 
-console.log(process.env)
 // Listen to the specified port. On prod env use pm2 ecosystem.config.js port, otherwise use default port.
 if (PORT && IP) {
     app.listen(Number(PORT), IP, () => {
