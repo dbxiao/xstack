@@ -1,12 +1,11 @@
 import test from '@server/product/test'
-import home from '@server/product/libsx/home'
 import { defaultRoute } from '../conf/default'
 import { RouterMapsProps } from '../types'
 
 export const routerMaps: RouterMapsProps[] = [
     {
         'path': '/',
-        'server': home,
+        'view': '../res/libsx',
     }, {
         'path': '/abc/:id$',
         'server': test,
