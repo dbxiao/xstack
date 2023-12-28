@@ -58,6 +58,9 @@ devDependencies:
   nodemon:
     specifier: ^3.0.1
     version: 3.0.1
+  pnpm:
+    specifier: ^8.13.1
+    version: 8.13.1
   ts-node:
     specifier: ^10.9.1
     version: 10.9.1(@types/node@20.4.2)(typescript@5.1.6)
@@ -1603,6 +1606,12 @@ packages:
       - supports-color
       - utf-8-validate
     dev: false
+
+  /pnpm@8.13.1:
+    resolution: {integrity: sha512-dYvrxpictkYsUTgSmEAZOxDCWN3NsKtD7g753Yd4S8IY1uQctb7qw2K4zjPx+LCAJbWZkzwLzoIFCpo2uEdNQw==}
+    engines: {node: '>=16.14'}
+    hasBin: true
+    dev: true
 
   /promptly@2.2.0:
     resolution: {integrity: sha512-aC9j+BZsRSSzEsXBNBwDnAxujdx19HycZoKgRgzWnS8eOHg1asuf9heuLprfbe739zY3IdUQx+Egv6Jn135WHA==}
