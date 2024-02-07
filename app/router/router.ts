@@ -17,7 +17,7 @@ const router = express.Router()
  */
 const routerAction = (req: Request, res: Response, next: NextFunction) => {
     // Get the request path from 'req'.
-    const {path: reqPath, method, protocol, url, hostname, headers} = req
+    const { path: reqPath, method, protocol, url, hostname, headers } = req
     // Iterate over the 'routerMaps' array to find a match for the request path
     const targetRoute: RouterMapsProps = routerMaps.find((item) => {
         const { path } = item
@@ -31,9 +31,9 @@ const routerAction = (req: Request, res: Response, next: NextFunction) => {
 
     if (server) {
         if (view) {
-            isClass(server) ? new server({req, res, next, view }) : server(req, res, next, view)
+            isClass(server) ? new server({ req, res, next, view }) : server(req, res, next, view)
         } else {
-            isClass(server) ? new server({req, res, next}): server(req, res, next)
+            isClass(server) ? new server({ req, res, next }) : server(req, res, next)
         }
     } else if (view) {
         // Has view. render the 'view' using the response
