@@ -10,27 +10,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    # - uses: actions/setup-node@v4
-    #   with:
-    #     node-version: 18
-    #     cache: 'npm'
-    - name: Setup Node.js with PNPM
-      uses: actions/setup-node@v3
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
       with:
         node-version: 18
-        package-manager: pnpm
-        
-    - name: Install Dependencies
-      run: pnpm install
+        cache: 'npm'
+
+    - name: Install PNPM
+      run: npm install -g pnpm
     - name: Check PNPM version
       run: pnpm --version
-
-    - name: Install TypeScript
-      run: pnpm install --save-dev typescript
-
+    - name: Install Dependencies
+      run: pnpm install
     - name: Build TypeScript
       run: npx tsc
-
     - name: Build the Docker image
       run: sh build.sh --buildImage web-server master
