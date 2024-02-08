@@ -30,7 +30,7 @@ printInfo() {
 }
 
 dockerInit() {
-    # echo "xiao5806" | docker login --username=dbxiao@aliyun.com --password-stdin registry.cn-beijing.aliyuncs.com
+    echo "xiao5806" | docker login --username=dbxiao@aliyun.com --password-stdin registry.cn-beijing.aliyuncs.com
     echo $registry/$name:$version
 }
 
