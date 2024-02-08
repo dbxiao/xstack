@@ -23,6 +23,6 @@ jobs:
     - name: Build typescript
       run: npx tsc
     - name: Build the docker image
-      run: sh build.sh --buildImage web-server master
+      run: sh build.sh --buildImage master
     - name: Push the docker image
-      run: sh build.sh --pushImage web-server master
+      run: sh build.sh --pushImage master
