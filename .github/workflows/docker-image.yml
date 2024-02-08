@@ -22,6 +22,8 @@ jobs:
       run: pnpm install
     - name: Build typescript
       run: npx tsc
+    - name: Login Docker
+      run: echo "${{ env.D_REGISTRY_PW }}" | docker login --username=dbxiao@aliyun.com --password-stdin registry.cn-beijing.aliyuncs.com
     - name: Build the docker image
       run: sh build.sh --buildImage master
     - name: Push the docker image
