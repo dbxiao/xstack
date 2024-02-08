@@ -19,8 +19,11 @@ jobs:
     - name: Check PNPM version
       run: pnpm --version
     - name: Install Dependencies
+      run: pnpm -v
       run: pnpm install
-    - name: Build TypeScript
+    - name: Build typescript
       run: npx tsc
-    - name: Build the Docker image
+    - name: Build the docker image
       run: sh build.sh --buildImage web-server master
+    - name: Push the docker image
+      run: sh build.sh --pushImage web-server master
