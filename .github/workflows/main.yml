@@ -1,5 +1,4 @@
-name: Docker Image CI
-
+name: Docker Build CI
 on:
   push:
     branches: [ "master" ]
@@ -8,12 +7,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with:
-        node-version: 18
+        node-version: 20
     - name: Install PNPM
       run: npm install -g pnpm
     - name: Check PNPM version
@@ -22,8 +20,6 @@ jobs:
       run: pnpm install
     - name: Build typescript
       run: npx tsc
-    # - name: Login Docker
-    #   run: echo "${{ env.D_REGISTRY_PW }}" | docker login --username=dbxiao@aliyun.com --password-stdin registry.cn-beijing.aliyuncs.com
     - name: Build the docker image
       run: sh build.sh --buildImage master
     - name: Push the docker image

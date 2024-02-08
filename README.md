@@ -1,5 +1,7 @@
 # Overview
 
+![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+
 ## About XStack
 
 XStack 是一个轻量级web服务，使用express、ejs、typescript、pm2构建项目。我们的目标是将XStack定义为全栈公共web服务，可以适用于多种前端场景，包括但不限于：Web SSR服务、微服务、代理转发、CDN等。

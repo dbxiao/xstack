@@ -29,11 +29,13 @@ printInfo() {
     echo -e '\e[33m ##################################### \e[0m'
 }
 
+## Docker init with login
 dockerInit() {
     echo "xiao5806" | docker login --username=dbxiao@aliyun.com --password-stdin registry.cn-beijing.aliyuncs.com
     echo $registry/$name:$version
 }
 
+## Build docker images
 buildImage() {
     dockerInit
     printInfo
@@ -42,6 +44,7 @@ buildImage() {
     docker images
 }
 
+## Push docker images
 pushImage() {
     dockerInit
     printInfo
@@ -49,12 +52,14 @@ pushImage() {
     docker push $registry/$name:$version
 }
 
+## Pull docker images
 pullImage() {
     dockerInit
     printInfo
     docker pull $registry/$name:$version
 }
 
+## Run docker
 runImage() {
     dockerInit
     printInfo
@@ -64,33 +69,36 @@ runImage() {
     echo '#[INPUT] docker exec -it <containerId> /bin/bash'
 }
 
+## Stop docker running images
 stopImage() {
     docker rm -f `docker ps -a -q`
     docker ps
 }
 
-#installSource() {
-    # rm -fr $current/app/webroot/view/*
-    # rm -fr $current/app/webroot/res/*
-    # mkdir -p $current/app/webroot/view
-    # mkdir -p $current/app/webroot/res
+## install web source
+installSource() {
+    rm -fr $current/app/webroot/view/*
+    rm -fr $current/app/webroot/res/*
+    mkdir -p $current/app/webroot/view
+    mkdir -p $current/app/webroot/res
 
-    # for dependence in "web-xengine" "web-official" "web-devops" "web-ditest" "ask-meta" "web-mobile" "web-managerx"
-    # do
-    #     cloneDependence "$dependence"
-    # done
-#}
+    for dependence in "web-xengine" "web-official" "web-devops" "web-ditest" "ask-meta" "web-mobile" "web-managerx"
+    do
+        cloneDependence "$dependence"
+    done
+}
 
-# cloneDependence() {
-#     local project=$1
-#     mkdir -p $current/temp
-#     cd $current/temp
-#         git clone --single-branch -b $project@main https://oauth2:JY-_P5g3eLpH-iFWXSwa@gitlab.dipeak.com/web/di-deploy
-#     cp -frp $current/temp/di-deploy/res/* $current/app/webroot/res/
-#     cp -frp $current/temp/di-deploy/view/* $current/app/webroot/view/
-#     rm -fr $current/temp
-#     cd $current
-# }
+## clone dependence
+cloneDependence() {
+    local project=$1
+    mkdir -p $current/temp
+    cd $current/temp
+        git clone --single-branch -b $project@main https://oauth2:JY-_P5g3eLpH-iFWXSwa@gitlab.dipeak.com/web/di-deploy
+    cp -frp $current/temp/di-deploy/res/* $current/app/webroot/res/
+    cp -frp $current/temp/di-deploy/view/* $current/app/webroot/view/
+    rm -fr $current/temp
+    cd $current
+}
 
 ## $1 = action
 ## $2 = branch name
