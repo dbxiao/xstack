@@ -19,7 +19,6 @@ jobs:
     - name: Check PNPM version
       run: pnpm --version
     - name: Install Dependencies
-      run: pnpm -v
       run: pnpm install
     - name: Build typescript
       run: npx tsc
