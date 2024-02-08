@@ -30,6 +30,7 @@ printInfo() {
 }
 
 dockerInit() {
+    docker login registry.cn-beijing.aliyuncs.com
     echo $registry/$name:$version
 }
 
@@ -92,9 +93,7 @@ stopImage() {
 # }
 
 ## $1 = action
-## $2 = project name
-## $3 = branch name
-## $4 = user
+## $2 = branch name
 parameterFormate() {
     branch=$2
     version=$(echo $branch | sed 's/\//./g')
