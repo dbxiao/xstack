@@ -43,7 +43,7 @@ const routerAction = (req: Request, res: Response, next: NextFunction) => {
         return next()
     }
 
-    Console.log(`@routerAction::targetRoute: ${JSON.stringify(targetRoute)} ]`)
+    // Console.log(`@routerAction::targetRoute: ${JSON.stringify(targetRoute)} ]`)
     next()
 }
 

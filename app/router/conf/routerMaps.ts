@@ -7,7 +7,7 @@ export const routerMaps: RouterMapsProps[] = [
         'path': '/',
         'view': '../res/libsx',
     }, {
-        'path': '/abc/:id$',
+        'path': '/test$',
         'server': test,
         'view': '403.html',
     },

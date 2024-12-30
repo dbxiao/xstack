@@ -2,7 +2,7 @@
 
 ![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
 
-## About XStack
+## 关于
 
 XStack 是一个轻量级web服务，使用express、ejs、typescript、pm2构建项目。我们的目标是将XStack定义为全栈公共web服务，可以适用于多种前端场景，包括但不限于：Web SSR服务、微服务、代理转发、CDN等。
 
@@ -11,10 +11,26 @@ XStack作为公共Web服务，不限于任何前端框架，你可以使用React
 项目质量：使用cypress进行代码UT
 
 
-## Features
+## 快速开始
+
+- 安装
+```bash
+npm install
+pnpm install
+yarn install
+```
+
+- 启动
+```bash
+pnpm run dev
+```
+
+
+
+## 功能地图
 
 - 基础功能
-  - [ ] HTTPS支持
+  - [x] HTTPS支持
   - [x] 路由管理
   - [x] 代理管理
   - [ ] React SSR、VUE SSR
@@ -58,9 +74,3 @@ XStack作为公共Web服务，不限于任何前端框架，你可以使用React
   - [ ] 单机部署
   - [ ] 集群部署
   - [ ] 运行监控
-
-
-## 开发文档
-
-todo
-
