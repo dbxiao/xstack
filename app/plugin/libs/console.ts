@@ -1,5 +1,5 @@
 /**
- * @name console.ts
+ * @file console.ts
  * @author AI
  * @date 2024-07-25
  * @description 封装 Console 对象，用自定义的 Consoles 替换全局 console。支持在控制台输出包含代码位置、行号、日志级别和日志内容的信息，兼容浏览器和 Node.js 环境。
@@ -44,7 +44,7 @@ const Consoles = {
      * @returns 调用栈的代码行信息
      */
     getStack: () => {
-        // 返回调用栈中第 3
+        // 返回调用栈中第 3 行信息
         const stackTrace = new Error().stack;
         if (stackTrace) {
             return stackTrace.split('\n').slice(3, 4).join('\n').trim();
@@ -52,10 +52,14 @@ const Consoles = {
             return 'Stack trace is not available.';
         }
     },
+    /**
+     * 获取当前时间并转换为东八区的 ISO8601 格式
+     * @returns 转换后的时间字符串
+     */
     ISO8Time: () => {
-        // Return the current time in ISO8601 format and replace 'Z' with ''.
+        // 返回当前时间的 ISO8601 格式，并移除 'Z' 字符
         const now = new Date()
-        // Shift the time by 8 hours eastward to China time zone.
+        // 将时间向东偏移 8 小时，转换为中国时区
         now.setHours(now.getHours() + 8) 
         return now.toISOString().replace('Z', '')
     }

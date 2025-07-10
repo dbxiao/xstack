@@ -1,14 +1,22 @@
-/* eslint-disable no-useless-escape */
-/*
- * @author:dbxiao
- * @data:2014-11-11
- * @module:util
- * @function:提供server工具库方法
+/**
+ * @author dbxiao
+ * @date 2014-11-11
+ * @description 提供 server 工具库方法，包含各种常用的辅助函数
  */
 let util = {
+    /**
+     * 生成唯一 ID
+     * @returns {String} 唯一 ID 字符串
+     */
     getUnitId: () => {
 		return parseInt(Math.random() * new Date().getTime()).toString(36)
 	},
+    
+    /**
+     * 转义 HTML 特殊字符
+     * @param {String} text - 待转义的文本
+     * @returns {String} 转义后的文本
+     */
     escapeHtml:  (text) => {
         var map = {
             '&': '&amp;',
@@ -28,9 +36,10 @@ let util = {
     },
 
     /**
-     * 请求参数获取
-     * @param {Object _req, String param} [请求对象,请求参数]
-     * @return {String} [返回值：参数字符产]
+     * 获取请求参数
+     * @param {Object} req - 请求对象
+     * @param {String} param - 参数名
+     * @returns {String} 参数值
      */
     getQueryParam: function (req, param) {
         let params = req.query[param]

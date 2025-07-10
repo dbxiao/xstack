@@ -2,8 +2,7 @@
  * @file router.ts
  * @author dbxiao@foxmail.com
  * @description 提供 XStack 统一的路由中间件服务，将路由功能抽离为独立服务，支持自定义和扩展，以适配不同项目场景。
- * @version 1.0.0
- * @since 2024-01-01
+ * @copyright 2025 dbxiao. All rights reserved.
  */
 import express, { Request, Response, NextFunction } from 'express'
 import { routerMaps, RouterMapsProps } from '@router/index'
