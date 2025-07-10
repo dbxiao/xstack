@@ -14,7 +14,7 @@ XStack作为公共Web服务，不限于任何前端框架，你可以使用React
 ## Features
 
 - 基础功能
-  - [ ] HTTPS支持
+  - [x] HTTPS支持
   - [x] 路由管理
   - [x] 代理管理
   - [ ] React SSR、VUE SSR
@@ -62,5 +62,26 @@ XStack作为公共Web服务，不限于任何前端框架，你可以使用React
 
 ## 开发文档
 
-todo
+### 本地运行
+
+- bun（推荐）
+
+```
+bun install
+bun run dev
+```
+
+- node
+
+```
+npm install
+npm run dev
+```
+
+- pnpm
+
+```
+pnpm install
+pnpm run dev
+```
 

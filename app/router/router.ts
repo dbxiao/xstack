@@ -1,55 +1,64 @@
 /**
+ * @file router.ts
  * @author dbxiao@foxmail.com
- * @description This function provides the XStack routing middleware service. 
- * It separates the middleware functionality into an independent service that is customizable
- * and scalable to adapt to different project scenarios.
+ * @description 提供 XStack 统一的路由中间件服务，将路由功能抽离为独立服务，支持自定义和扩展，以适配不同项目场景。
+ * @version 1.0.0
+ * @since 2024-01-01
  */
 import express, { Request, Response, NextFunction } from 'express'
 import { routerMaps, RouterMapsProps } from '@router/index'
 import { Console, isClass, matchPath } from '@plugin/libs'
+
+// 创建 Express 路由器实例
 const router = express.Router()
 
 /**
- * Request processing function
- * @param {Object} req Request
- * @param {Object} res Response
- * @param {Object} next next function
+ * 请求处理函数，根据请求路径匹配路由规则，并执行相应的服务器逻辑或渲染视图。
+ * @param req - Express 请求对象，包含请求相关信息。
+ * @param res - Express 响应对象，用于返回响应给客户端。
+ * @param next - Express 中间件的 next 函数，用于调用下一个中间件。
  */
 const routerAction = (req: Request, res: Response, next: NextFunction) => {
-    // Get the request path from 'req'.
+    // 从请求对象中获取请求路径、方法、协议、URL、主机名和请求头
     const { path: reqPath, method, protocol, url, hostname, headers } = req
-    // Iterate over the 'routerMaps' array to find a match for the request path
+    
+    // 遍历路由映射表，查找与请求路径匹配的路由规则
     const targetRoute: RouterMapsProps = routerMaps.find((item) => {
         const { path } = item
         return matchPath(path, reqPath)
     }) || { path: '/404', view: '404.html' }
-    // Extract the 'server' and 'view' properties from 'targetRoute'
+    
+    // 从匹配的路由规则中提取服务器处理函数和视图文件路径
     const { server, view } = targetRoute
 
+    // 记录请求日志
     Console.log(`[${method}] ${protocol}://${hostname}${url} | ${headers["user-agent"]}`)
-
 
     if (server) {
         if (view) {
+            // 如果服务器处理函数是类，则创建实例并调用；否则直接调用函数
             isClass(server) ? new server({ req, res, next, view }) : server(req, res, next, view)
         } else {
             isClass(server) ? new server({ req, res, next }) : server(req, res, next)
         }
     } else if (view) {
-        // Has view. render the 'view' using the response
+        // 没有服务器处理函数但有视图文件，渲染视图文件
         res.render(view)
     } else {
-        // No view. send 404 msg
+        // 没有服务器处理函数和视图文件，调用 next 函数继续处理请求
         return next()
     }
 
+    // 记录匹配的路由规则日志
     Console.log(`@routerAction::targetRoute: ${JSON.stringify(targetRoute)} ]`)
     next()
 }
 
+// 为 GET、POST、PUT、DELETE 请求方法注册路由处理函数
 router.get('/*', [routerAction])
 router.post('/*', [routerAction])
 router.put('/*', [routerAction])
 router.delete('/*', [routerAction])
 
+// 导出 Express 路由器实例
 export default router

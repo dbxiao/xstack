@@ -6,13 +6,12 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "tsc --watch",
-        "start": "tsc --watch & node --inspect ./dist/app/app.js  NODE_ENV=development",
-        "dev": "tsc --watch & pm2 start ./dist/ecosystem.config.js --env development",
+        "dev": "tsc --watch & node --inspect ./dist/app/app.js  NODE_ENV=development",
         "prod": "tsc & pm2 start ./dist/ecosystem.config.js --env production"
     },
     "keywords": [
         "web",
-        "SSR",
+        "ssr",
         "express",
         "typescript",
         "framswork"

@@ -1,9 +1,10 @@
 /**
  * @author dbxiao
- * @description This code registers module aliases, imports required modules,
- * creates an express app instance, sets port number, static file configuration, template file paths, 
- * response content compression, JSON parsing, cookie parsing, routing module, and listens to the specified port.
- * @copyright 2023 dbxiao. All rights reserved.
+ * @description 
+ * 此模块用于初始化并启动一个 Express 应用程序。
+ * 主要功能包括注册模块别名、加载环境变量、配置 Express 应用，
+ * 如设置端口、静态文件路径、模板引擎，以及启用响应压缩、JSON 解析、Cookie 解析等中间件，
+ * @copyright 2025 dbxiao. All rights reserved.
  */
 
 // Register module alias
