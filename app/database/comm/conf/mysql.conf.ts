@@ -14,7 +14,7 @@ export const mysqlConf = {
         queueLimit: 0,
         waitForConnection: true,
         connectionLimit: 50,
-        database: 'xManager',
+        database: 'xmanager',
         accessIp: ['localhost']
     }
 }
