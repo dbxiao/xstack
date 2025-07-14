@@ -8,9 +8,9 @@
 const Axios = require('axios')
 const RawBody = require('raw-body')
 const Page = require('../base/page')
-const Util = require('../../common/util')
-const Code = require('../../common/conf/error_code')
-const RestAPI = require('../../common/restAPI')
+const Util = require('@common/util')
+const Code = require('@common/conf/error_code')
+const RestAPI = require('@common/restAPI')
 const { Console } = require('../../../plugin/libs')
 
 class AuthController extends Page {

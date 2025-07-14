@@ -38,6 +38,8 @@ app.use('/' + RES, express.static(STATIC_DIR, staticOptions))
 app.use(compression())
     .use(json())
     .use(cookieParser())
+    .use(express.urlencoded({ extended: true }))
+    
 
 // Use routing module
 app.use(router)

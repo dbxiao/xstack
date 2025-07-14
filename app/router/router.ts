@@ -50,7 +50,7 @@ const routerAction = (req: Request, res: Response, next: NextFunction) => {
 
     // 记录匹配的路由规则日志
     Console.log(`@routerAction::targetRoute: ${JSON.stringify(targetRoute)} ]`)
-    next()
+    // next()
 }
 
 // 为 GET、POST、PUT、DELETE 请求方法注册路由处理函数

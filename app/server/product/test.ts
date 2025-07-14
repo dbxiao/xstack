@@ -1,28 +1,19 @@
-import { Request, Response, NextFunction} from "express"
-
-// class Test {
-// 	props: any
-// 	constructor(props: any) {
-// 		this.props = props
-
-// 		// this.props.res.send({
-// 		// 	code: 200,
-// 		// 	msg:'success',
-// 		// 	data: {
-// 		// 		name: 'test',
-// 		// 		age: 18
-// 		// 	}
-// 		// })
-
-// 		this.props.res.render(this.props.view)
-// 	}
-// }
+import { Response } from "express"
+import { select } from "@database/comm/sqlQuery"
 
 const Test =  (req: any, res?: Response<any>) => {
-    res?.send({
-        code: 'test!',
-        msg: 'test page'
-    })
+    select('users', ['username', 'status'])
+        .then((result) => {
+            res?.send({
+                code: 'test!',
+                msg: result
+            })
+        }).catch(error => {
+            res?.send({
+                code: 'error!',
+                msg: error
+            })
+        })
 }
 
 export default Test

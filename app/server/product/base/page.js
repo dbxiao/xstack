@@ -5,11 +5,12 @@
  * @description 落地页Page基类
  */
 
-const fs = require('fs')
-const Hash = require('../../common/hash')
-const Util = require('../../common/util')
-const RestAPI = require('../../common/restAPI')
-const { Console } = require('../../../plugin/libs')
+import fs  from 'fs'
+import Hash  from '@common/hash'
+import Util  from '@common/util'
+import RestAPI  from '@common/restAPI'
+import { Console } from '@plugin/libs'
+
 const { 
     PREFIX,
     BACKEND_PROXY_URI, 

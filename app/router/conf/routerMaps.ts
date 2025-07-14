@@ -1,6 +1,8 @@
-import test from '@server/product/test'
+
 import { defaultRoute } from '../conf/default'
 import { RouterMapsProps } from '../types'
+import { createUser } from '@server/product/users/createUser'
+import test from '@server/product/test'
 
 export const routerMaps: RouterMapsProps[] = [
     {
@@ -8,8 +10,10 @@ export const routerMaps: RouterMapsProps[] = [
         'view': '../res/libsx',
     }, {
         'path': '/abc/:id$',
-        'server': test,
-        'view': '403.html',
+        'server': test
+    }, {
+        'path': '/users/createUser',
+        'server': createUser
     },
     ...defaultRoute
 ]
