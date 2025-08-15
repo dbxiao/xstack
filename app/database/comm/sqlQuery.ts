@@ -75,8 +75,8 @@ export async function deleteData(table: string, where: { [key: string]: any }) {
 /**
  * @name sqlQuery
  * @description 自定义sql查询
- * @author dbxiao@foxmail.com
- * @copyright dbxiao@foxmail.com
+ * @param sqlQuery sql查询语句
+ * @param values sql查询参数
  */
 export async function sqlQuery(sqlQuery: string, values: any[] = []) {
     return sqlConnect(sqlQuery, values)

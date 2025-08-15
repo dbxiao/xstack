@@ -1,7 +1,7 @@
 
 import { defaultRoute } from '../conf/default'
 import { RouterMapsProps } from '../types'
-import { createUser } from '@server/product/users/createUser'
+import { createUser } from '@server/product/xmamager/user/userManager'
 import test from '@server/product/test'
 
 export const routerMaps: RouterMapsProps[] = [

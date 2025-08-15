@@ -1,6 +1,7 @@
 /**
- * @file router.ts
+ * @name router.ts
  * @author dbxiao@foxmail.com
+ * @date 2025-08-01
  * @description 提供 XStack 统一的路由中间件服务，将路由功能抽离为独立服务，支持自定义和扩展，以适配不同项目场景。
  * @copyright 2025 dbxiao. All rights reserved.
  */
@@ -13,9 +14,10 @@ const router = express.Router()
 
 /**
  * 请求处理函数，根据请求路径匹配路由规则，并执行相应的服务器逻辑或渲染视图。
- * @param req - Express 请求对象，包含请求相关信息。
- * @param res - Express 响应对象，用于返回响应给客户端。
- * @param next - Express 中间件的 next 函数，用于调用下一个中间件。
+ * @param {Request} req - Express 请求对象，包含请求相关信息。
+ * @param {Response} res - Express 响应对象，用于返回响应给客户端。
+ * @param {NextFunction} next - Express 中间件的 next 函数，用于调用下一个中间件。
+ * @returns {void} - 无返回值
  */
 const routerAction = (req: Request, res: Response, next: NextFunction) => {
     // 从请求对象中获取请求路径、方法、协议、URL、主机名和请求头

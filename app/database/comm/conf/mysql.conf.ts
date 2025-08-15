@@ -1,6 +1,6 @@
 /**
  * @name mysqlConf
- * @description mysql 配置. 使用mariadb作为关系型数据库
+ * @description mysql 配置. 使用 mariadb 作为关系型数据库
  * @author dbxiao@foxmail.com
  * @copyright dbxiao@foxmail.com
  */
