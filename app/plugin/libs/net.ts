@@ -9,7 +9,7 @@ import os from 'os'
 /**
  * 网络工具对象，封装网络相关的工具方法。
  */
-const net = {
+export const net = {
     /**
      * 获取本地非回环 IPv4 地址。遍历系统所有网络接口，查找第一个符合条件的非回环 IPv4 地址。
      * @returns 本地非回环 IPv4 地址，若未找到符合条件的地址则返回 undefined。
@@ -37,6 +37,3 @@ const net = {
         }
     }
 }
-
-// 导出网络工具对象
-export default net

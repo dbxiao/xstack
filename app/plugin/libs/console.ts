@@ -65,4 +65,4 @@ const Consoles = {
     }
 }
 
-export default Consoles
+export const { log, info, error, count, getStack, ISO8Time } = Consoles

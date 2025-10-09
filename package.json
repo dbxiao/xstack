@@ -10,6 +10,7 @@
         "prod": "tsc & pm2 start ./dist/ecosystem.config.js --env production"
     },
     "keywords": [
+        "xstack",
         "web",
         "ssr",
         "express",
@@ -19,8 +20,8 @@
     "author": "dbxiao@foxmail.com",
     "license": "MIT",
     "_moduleAliases": {
-        "@plugin": "./dist/app/plugin",
         "@database": "./dist/app/database",
+        "@plugin": "./dist/app/plugin",
         "@router": "./dist/app/router",
         "@server": "./dist/app/server",
         "@config": "./dist/config"

@@ -2,7 +2,7 @@
  * @name sqlConnect
  * @description 创建SQL链接池子，并执行sql语句
  * @author dbxiao@foxmail.com
- * @copyright dbxiao@foxmail.com
+ * @copyright dbxiao@foxmail.com All rights reserved.
  */
 
 import mariadb from 'mariadb'
@@ -29,7 +29,7 @@ const createPool = () => {
  * @returns 
  */
 export async function sqlConnect(sql: string, values?: any[]) {
-    let conn
+    let conn: any
     try {
         // 创建连接池
         if (pool) {

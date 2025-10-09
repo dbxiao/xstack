@@ -1,10 +1,8 @@
 /**
- * @author dbxiao
- * @description 
- * 此模块用于初始化并启动一个 Express 应用程序。
- * 主要功能包括注册模块别名、加载环境变量、配置 Express 应用，
- * 如设置端口、静态文件路径、模板引擎，以及启用响应压缩、JSON 解析、Cookie 解析等中间件，
- * @copyright 2025 dbxiao. All rights reserved.
+ * @name app.ts
+ * @description Main application entry point for XStack, setting up the server and routing.
+ * @author dbxiao@foxmail.com
+ * @copyright dbxiao@foxmail.com All rights reserved.
  */
 
 // Register module alias

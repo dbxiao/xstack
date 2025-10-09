@@ -1,13 +1,12 @@
 /**
  * @name router.ts
- * @author dbxiao@foxmail.com
- * @date 2025-08-01
  * @description 提供 XStack 统一的路由中间件服务，将路由功能抽离为独立服务，支持自定义和扩展，以适配不同项目场景。
+ * @author dbxiao@foxmail.com
  * @copyright 2025 dbxiao. All rights reserved.
  */
 import express, { Request, Response, NextFunction } from 'express'
 import { routerMaps, RouterMapsProps } from '@router/index'
-import { Console, isClass, matchPath } from '@plugin/libs'
+import { info, isClass, matchPath } from '@plugin/libs'
 
 // 创建 Express 路由器实例
 const router = express.Router()
@@ -33,14 +32,18 @@ const routerAction = (req: Request, res: Response, next: NextFunction) => {
     const { server, view } = targetRoute
 
     // 记录请求日志
-    Console.log(`[${method}] ${protocol}://${hostname}${url} | ${headers["user-agent"]}`)
+    info(`[${method}] ${protocol}://${hostname}${url} | ${headers["user-agent"]}`)
 
     if (server) {
         if (view) {
             // 如果服务器处理函数是类，则创建实例并调用；否则直接调用函数
-            isClass(server) ? new server({ req, res, next, view }) : server(req, res, next, view)
+            isClass(server) 
+                ? new server({ req, res, next, view }) 
+                : server(req, res, next, view)
         } else {
-            isClass(server) ? new server({ req, res, next }) : server(req, res, next)
+            isClass(server) 
+                ? new server({ req, res, next }) 
+                : server(req, res, next)
         }
     } else if (view) {
         // 没有服务器处理函数但有视图文件，渲染视图文件
@@ -51,15 +54,8 @@ const routerAction = (req: Request, res: Response, next: NextFunction) => {
     }
 
     // 记录匹配的路由规则日志
-    Console.log(`@routerAction::targetRoute: ${JSON.stringify(targetRoute)} ]`)
-    // next()
+    info(`@routerAction::targetRoute: ${JSON.stringify(targetRoute)} ]`)
 }
 
-// 为 GET、POST、PUT、DELETE 请求方法注册路由处理函数
-router.get('/*', [routerAction])
-router.post('/*', [routerAction])
-router.put('/*', [routerAction])
-router.delete('/*', [routerAction])
-
-// 导出 Express 路由器实例
+router.all('/*', [routerAction])
 export default router

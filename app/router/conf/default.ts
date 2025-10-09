@@ -1,10 +1,9 @@
 /**
+ * @name defaultRoute
+ * @description Maps common default routes to their respective views.
  * @author dbxiao@foxmail.com
- * @description It is used to configure common default routes for web services, such as 403, 404, 500, and so on. 
- * You can add other default routes and default pages to the webroot/view directory. 
- * @example http://127.0.0.1:18080/403
+ * @copyright dbxiao@foxmail.com All rights reserved.
  */
-
 import { RouterMapsProps } from '../types'
 
 export const defaultRoute: RouterMapsProps[] = [

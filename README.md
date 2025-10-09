@@ -120,6 +120,7 @@ brew upgrade mariadb
 ```bash
 -- 登陆数据库
 mysql -u root -p12345678;
+SHOW DATABASES;
 SHOW TABLES;
 
 -- 使用数据库
