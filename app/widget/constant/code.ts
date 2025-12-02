@@ -5,7 +5,7 @@
  * @description 全局错误码集合，方便统一管理和使用 Web 服务的错误码。可根据项目背景修改和定义。
  * @warning 新增或修改错误码时，需确保错误码的唯一性。
  * @example 
- * import { Code } from '@plugin/constant';
+ * import { Code } from '@widget/constant';
  * console.log(Code[403].msg)
  * @copyright dbxiao@foxmail.com. All rights reserved.
  */

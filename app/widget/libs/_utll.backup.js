@@ -3,7 +3,7 @@
  * @date 2014-11-11
  * @description 提供 server 工具库方法，包含各种常用的辅助函数
  */
-let util = {
+const util = {
     /**
      * 生成唯一 ID
      * @returns {String} 唯一 ID 字符串
@@ -137,7 +137,9 @@ let util = {
     },
 
     /**
-     * 对象转换为字符串拼接
+     * 
+     * @param {Object} obj - 待转换的对象
+     * @returns {String} 转换后的字符串
      */
 	obj2Str:  (obj) => {
 		var str = "";
@@ -146,6 +148,8 @@ let util = {
 		}
 		return str;
 	},
+
+    
 
     // 安全的hasOwnProperty
     hasProperty: (obj, child) => {

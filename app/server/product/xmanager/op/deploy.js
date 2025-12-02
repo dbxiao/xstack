@@ -4,7 +4,7 @@
 
 const ChildProcess = require("child_process")
 const Page = require('../../base/page')
-const Code = require('../../../common/conf/error_code')
+const Code = require('@widgets/conf/error_code')
 class DeployManager extends Page {
 	constructor(props) {
 		super(props)

@@ -15,15 +15,15 @@
         "skipLibCheck": true,
         "paths": {
             "@database": ["app/database/"],
-            "@plugin": ["app/plugin/"],
             "@router": ["app/router/"],
             "@server": ["app/server/"],
             "@config": ["config/"],
+            "@widget": ["app/widget/"],
             "@database/*": ["app/database/*"],
-            "@plugin/*": ["app/plugin/*"],
             "@router/*": ["app/router/*"],
             "@server/*": ["app/server/*"],
-            "@config/*": ["config/*"]
+            "@config/*": ["config/*"],
+            "@widget/*": ["app/widget/*"],
         }
     },
     "files": [

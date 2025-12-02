@@ -6,8 +6,8 @@
  */
 
 import { sqlConnect } from '@database/comm/sqlConnect'
-import { Code } from "@plugin/constant/code"
-import { info } from '@plugin/libs';
+import { Code } from "@widget/constant/code"
+import { objIsEmpty } from '@widget/libs';
 
 /**
  * @name select
@@ -35,7 +35,7 @@ export async function select(
     let values: any[] = [];
 
     // 处理 WHERE 条件
-    if (where) {
+    if (where && !objIsEmpty(where)) {
         const whereClauses = Object.keys(where).map(key => `${key} = ${where[key]}`);
         sql += ` WHERE ${whereClauses.join(' AND ')}`;
         values = Object.values(where);
@@ -46,15 +46,15 @@ export async function select(
         const orderClauses = Object.entries(order).map(([key, direction]) =>
             `${key} ${direction.toUpperCase()}`
         );
-        sql += ` ORDER BY ${orderClauses.join(', ')};`;
+        sql += ` ORDER BY ${orderClauses.join(', ')}`;
     }
 
     // 处理 LIMIT
-    // if (limit) {
-    //     sql += ` LIMIT ${limit.offset}, ${limit.count}`;
-    // }
+    if (limit) {
+        sql += ` LIMIT ${limit.offset}, ${limit.count}`;
+    }
 
-    console.error(3333333, sql)
+    sql += ';';
 
     return sqlConnect(sql, values);
 }

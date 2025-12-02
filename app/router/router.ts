@@ -6,7 +6,7 @@
  */
 import express, { Request, Response, NextFunction } from 'express'
 import { routerMaps, RouterMapsProps } from '@router/index'
-import { info, isClass, matchPath } from '@plugin/libs'
+import { info, isClass, matchPath } from '@widget/libs'
 
 // 创建 Express 路由器实例
 const router = express.Router()

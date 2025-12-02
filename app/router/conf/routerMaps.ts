@@ -7,7 +7,7 @@
  */
 import { defaultRoute } from '../conf/default'
 import { RouterMapsProps } from '../types'
-import { createUser, getUser, updateUser, deleteUser } from '@server/product/xmamager/user/userManager'
+import { createUser, getUsers, updateUser, deleteUser } from '@server/product/xmanager/user/userManager'
 import test from '@server/product/test'
 
 export const routerMaps: RouterMapsProps[] = [
@@ -18,18 +18,18 @@ export const routerMaps: RouterMapsProps[] = [
         'path': '/abc/:id$',
         'server': test
     }, {
-        'path': '/users/createUser',
+        'path': '/api/users/createUser',
         'server': createUser
     },{
-        'path': '/users/getUsers',
-        'server': getUser
+        'path': '/api/users/getUsers',
+        'server': getUsers
     },
     {
-        'path': '/users/updateUser/:id',
+        'path': '/api/users/updateUser/:id',
         'server': updateUser
     },
     {
-        'path': '/users/deleteUser/:id',
+        'path': '/api/users/deleteUser/:id',
         'server': deleteUser
     },
     ...defaultRoute

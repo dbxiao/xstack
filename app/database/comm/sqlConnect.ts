@@ -7,6 +7,7 @@
 
 import mariadb from 'mariadb'
 import { mysqlConf } from "@database/comm/conf/mysql.conf"
+import { info, log } from "@widget/libs"
 
 const { host, user, password, database, connectionLimit } = mysqlConf.LOCAL
 let pool: mariadb.Pool | any
@@ -38,20 +39,25 @@ export async function sqlConnect(sql: string, values?: any[]) {
             createPool()
             conn = await pool.getConnection()
         }
+
+        info(sql, values)
+
         const result = await conn.query(sql, values)
         const { errno } = result
         if (errno) {
-            return result
-        } else {
             return {
                 affectedRows: result.affectedRows,
-                insertId: result.insertId.toString(),
+                insertId: result.insertId,
                 warningStatus: result.warningStatus
             }
+        } else {
+            return result
         }
     } catch (err) {
         throw err
     } finally {
-        if (conn) conn.release()
+        if (conn) {
+            conn.release()
+        }
     }
 }

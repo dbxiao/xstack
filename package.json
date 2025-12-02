@@ -21,7 +21,7 @@
     "license": "MIT",
     "_moduleAliases": {
         "@database": "./dist/app/database",
-        "@plugin": "./dist/app/plugin",
+        "@widget": "./dist/app/widget",
         "@router": "./dist/app/router",
         "@server": "./dist/app/server",
         "@config": "./dist/config"

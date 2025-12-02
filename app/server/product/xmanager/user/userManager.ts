@@ -6,8 +6,8 @@
  */
 
 import { insert, select, update, deleteData } from '@database/comm/sqlQuery'
-import { Code } from '@plugin/constant/code'
-import { error, info } from '@plugin/libs'
+import { Code } from '@widget/constant/code'
+import { error, info } from '@widget/libs'
 
 /**
  * @name createUser
@@ -71,11 +71,9 @@ export const createUser = async (req: any, res: any) => {
  * @param res 响应对象
  * @returns 响应结果
  */
-export const getUser = async (req: any, res: any) => {
+export const getUsers = async (req: any, res: any) => {
     try {
         const { id, username, email, status, page = 1, pageSize = 10 } = req?.query || {};
-
-        console.error(11111111, req.query)
 
         // 构建查询条件
         const where: { [key: string]: any } = {};
@@ -85,14 +83,14 @@ export const getUser = async (req: any, res: any) => {
         if (status !== undefined) where.status = status;
 
         // 计算分页
-        const offset = (Number(page)) * Number(pageSize);
+        const offset = (Number(page) - 1) * Number(pageSize);
         const limit = { offset, count: Number(pageSize) };
 
         // 查询用户
         const users = await select('users', ['*'], where, { id: 'DESC' }, limit);
 
         // 查询总数
-        const totalResult = await select('users', ['COUNT(*) as total'], where);
+        const totalResult = await select('users', [`COUNT('user_id') as total`], where);
         const total = totalResult[0]?.total || 0;
 
         // 返回结果
@@ -102,7 +100,7 @@ export const getUser = async (req: any, res: any) => {
             data: {
                 list: users,
                 pagination: {
-                    total,
+                    total: Number(total),
                     page: Number(page),
                     pageSize: Number(pageSize)
                 }

@@ -9,7 +9,7 @@ import fs  from 'fs'
 import Hash  from '@common/hash'
 import Util  from '@common/util'
 import RestAPI  from '@common/restAPI'
-import { log } from '@plugin/libs'
+import { log } from '@widget/libs'
 
 const { 
     PREFIX,

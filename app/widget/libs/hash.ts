@@ -4,7 +4,7 @@
  * @description 提供加密工具方法，包含通用加密函数以及常用的 md5、sha1 和 sha256 加密方法，支持项目扩展。
  * @since 2024-01-01
  * @example 
- * import { encrypt, md5 } from '@plugin/libs'
+ * import { encrypt, md5 } from '@widget/libs'
  * console.log(encrypt('123456','md5'))
  * console.log(md5('123456'))
  */
