@@ -1,6 +1,6 @@
 /**
  * @file hash.ts
- * @author dbxiao@foxmail.com
+ * @author dbxiao@msn.cn
  * @description 提供加密工具方法，包含通用加密函数以及常用的 md5、sha1 和 sha256 加密方法，支持项目扩展。
  * @since 2024-01-01
  * @example 

@@ -1,8 +1,8 @@
 /**
  * @file net.ts
- * @author dbxiao@foxmail.com
+ * @author dbxiao@msn.cn
  * @description 提供网络相关的工具方法，当前实现了获取本地非回环 IPv4 地址的功能，可用于服务监听、网络通信等场景。
- * @copyright dbxiao@foxmail.com. All rights reserved.
+ * @copyright dbxiao@msn.cn. All rights reserved.
  */
 import os from 'os'
 

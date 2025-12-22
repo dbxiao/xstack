@@ -1,8 +1,8 @@
 /**
  * @name app.ts
  * @description Main application entry point for XStack, setting up the server and routing.
- * @author dbxiao@foxmail.com
- * @copyright dbxiao@foxmail.com All rights reserved.
+ * @author dbxiao@msn.cn
+ * @copyright dbxiao@msn.cn All rights reserved.
  */
 
 // Register module alias

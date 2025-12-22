@@ -1,8 +1,8 @@
 /**
  * @name defaultRoute
  * @description Maps common default routes to their respective views.
- * @author dbxiao@foxmail.com
- * @copyright dbxiao@foxmail.com All rights reserved.
+ * @author dbxiao@msn.cn
+ * @copyright dbxiao@msn.cn All rights reserved.
  */
 import { RouterMapsProps } from '../types'
 

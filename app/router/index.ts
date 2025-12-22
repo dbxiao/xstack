@@ -1,7 +1,7 @@
 /**
  * @name router
  * @description 路由模块
- * @author dbxiao@foxmail.com
+ * @author dbxiao@msn.cn
  * @copyright 2025 dbxiao. All rights reserved.
  */
 

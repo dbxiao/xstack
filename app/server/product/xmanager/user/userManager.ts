@@ -90,7 +90,7 @@ export const getUsers = async (req: any, res: any) => {
         const users = await select('users', ['*'], where, { id: 'DESC' }, limit);
 
         // 查询总数
-        const totalResult = await select('users', [`COUNT('user_id') as total`], where);
+        const totalResult = await select('users', [`COUNT(id) as total`], where);
         const total = totalResult[0]?.total || 0;
 
         // 返回结果

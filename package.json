@@ -6,8 +6,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "tsc --watch",
-        "dev": "tsc --watch & node --inspect ./dist/app/app.js  NODE_ENV=development",
-        "prod": "tsc & pm2 start ./dist/ecosystem.config.js --env production"
+        "dev": "tsc --watch & nodemon",
+        "prod": "tsc & pm2 start ./dist/ecosystem.config.js NODE_ENV=production"
     },
     "keywords": [
         "xstack",
@@ -17,7 +17,7 @@
         "typescript",
         "framswork"
     ],
-    "author": "dbxiao@foxmail.com",
+    "author": "dbxiao@msn.cn",
     "license": "MIT",
     "_moduleAliases": {
         "@database": "./dist/app/database",

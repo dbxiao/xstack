@@ -5,7 +5,7 @@
  * @description 此文件为 PM2 配置文件，定义了开发、生产等环境下的应用启动配置，可用于管理 Node.js 应用的集群模式、日志记录、监控等功能。
  * @warning 修改配置时需注意各环境变量的取值，避免影响应用正常运行。启动前确保 `dist/app/app.js` 文件存在。
  * @example 开发环境启动: npx pm2 start ./dist/ecosystem.config.js --env development
- * @copyright dbxiao@foxmail.com. All rights reserved.
+ * @copyright dbxiao@msn.cn. All rights reserved.
  */
 
 // 加载环境变量配置

@@ -7,7 +7,7 @@
  * @example 
  * import { Code } from '@widget/constant';
  * console.log(Code[403].msg)
- * @copyright dbxiao@foxmail.com. All rights reserved.
+ * @copyright dbxiao@msn.cn. All rights reserved.
  */
 
 // 全局错误码对象

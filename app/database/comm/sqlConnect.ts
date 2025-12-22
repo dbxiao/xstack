@@ -1,8 +1,8 @@
 /**
  * @name sqlConnect
  * @description 创建SQL链接池子，并执行sql语句
- * @author dbxiao@foxmail.com
- * @copyright dbxiao@foxmail.com All rights reserved.
+ * @author dbxiao@msn.cn
+ * @copyright dbxiao@msn.cn All rights reserved.
  */
 
 import mariadb from 'mariadb'

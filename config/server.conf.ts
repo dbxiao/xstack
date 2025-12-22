@@ -4,7 +4,7 @@
  * @date 2024-07-25
  * @description 定义服务器的全局配置，包含模板引擎、静态文件目录、数据库目录等路径配置，以及开发环境的 IP 和端口信息。
  * @warning 修改配置前请确认各路径是否正确，避免影响服务正常运行。
- * @copyright dbxiao@foxmail.com. All rights reserved.
+ * @copyright dbxiao@msn.cn. All rights reserved.
  */
 
 // 静态资源目录常量

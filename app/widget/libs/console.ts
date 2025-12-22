@@ -4,7 +4,7 @@
  * @date 2024-07-25
  * @description 封装 Console 对象，用自定义的 Consoles 替换全局 console。支持在控制台输出包含代码位置、行号、日志级别和日志内容的信息，兼容浏览器和 Node.js 环境。
  * @warning 在生产环境中使用时，注意日志输出可能会影响性能。
- * @copyright dbxiao@foxmail.com. All rights reserved.
+ * @copyright dbxiao@msn.cn. All rights reserved.
  */
 // 获取全局 console 对象
 const console = global && global.console || window && window.console

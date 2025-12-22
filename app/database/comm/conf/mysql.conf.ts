@@ -1,8 +1,8 @@
 /**
  * @name mysqlConf
  * @description mysql 配置. 使用 mariadb 作为关系型数据库
- * @author dbxiao@foxmail.com
- * @copyright dbxiao@foxmail.com
+ * @author dbxiao@msn.cn
+ * @copyright dbxiao@msn.cn
  */
 
 export const mysqlConf = {
