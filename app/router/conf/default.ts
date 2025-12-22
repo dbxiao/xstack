@@ -1,7 +1,8 @@
 /**
  * @name defaultRoute
- * @description Maps common default routes to their respective views.
  * @author dbxiao@msn.cn
+ * @description Maps common default routes to their respective views.
+ * @warning 新增或修改默认路由时，需确保路由的唯一性。
  * @copyright dbxiao@msn.cn All rights reserved.
  */
 import { RouterMapsProps } from '../types'

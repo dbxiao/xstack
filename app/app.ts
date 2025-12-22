@@ -12,12 +12,13 @@ import express, { json } from 'express'
 import compression from 'compression' 
 import cookieParser from 'cookie-parser'
 import ejs from 'ejs'
+import favicon from 'serve-favicon'
 import { router } from '@router'
 import serverConf from '@config/server.conf'
 dotenv.config()
 
 const { PORT, IP } = process.env
-const { RES, STATIC_DIR, DEV_IP, DEV_PORT } = serverConf
+const { RES, STATIC_DIR, DEV_IP, DEV_PORT, FAVICONS_DIR } = serverConf
 const app = express()
 const staticOptions = {
     etag: true,
@@ -28,6 +29,9 @@ const staticOptions = {
 app.engine('html', ejs.renderFile)
     .set('views', serverConf.VIEW_DIR)
     .set('view engine', 'html')
+
+// Serve favicon
+app.use(favicon(FAVICONS_DIR))
 
 // Static file route
 app.use('/' + RES, express.static(STATIC_DIR, staticOptions))

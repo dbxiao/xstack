@@ -38,7 +38,8 @@
         "multer": "^2.0.1",
         "mysql2": "^3.6.5",
         "pm2": "^5.3.0",
-        "redis": "^4.6.11"
+        "redis": "^4.6.11",
+        "serve-favicon": "^2.5.1"
     },
     "devDependencies": {
         "@types/compression": "^1.7.5",
@@ -48,6 +49,7 @@
         "@types/express": "^4.17.17",
         "@types/multer": "^2.0.0",
         "@types/node": "^20.19.7",
+        "@types/serve-favicon": "^2.5.7",
         "nodemon": "^3.0.1",
         "pnpm": "^8.13.1",
         "ts-node": "^10.9.1",

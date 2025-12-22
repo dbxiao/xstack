@@ -88,9 +88,17 @@ export const isClass = (obj: any):Boolean => {
  * @param {String} path - 待匹配的路径，例如 '/user/123'
  * @returns {Array|null} 匹配结果数组，或null表示不匹配
  */
+// 缓存正则表达式，避免重复编译提升性能
+const regexCache = new Map<string, RegExp>()
+
 export const matchPath = (pattern: string, path: string):Array<string>|null => {
-    const regexPattern = pattern.replace(/:([^\/]+)/g, '([^\/]+)')
-    const regex = new RegExp(`^${regexPattern}$`)
+    // 从缓存获取正则表达式，不存在则创建并缓存
+    let regex = regexCache.get(pattern)
+    if (!regex) {
+        const regexPattern = pattern.replace(/:([^\/]+)/g, '([^\/]+)')
+        regex = new RegExp(`^${regexPattern}$`)
+        regexCache.set(pattern, regex)
+    }
     const matches = path.match(regex)
     if (matches) {
         return matches.slice(1)
