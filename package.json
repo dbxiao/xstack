@@ -1,6 +1,6 @@
 {
     "name": "xstack",
-    "version": "1.0.1",
+    "version": "2.0.4",
     "description": "",
     "main": "app/app.ts",
     "scripts": {
