@@ -6,28 +6,54 @@
  */
 import { RouterMapsProps } from '../types'
 import { createUser, getUsers, updateUser, deleteUser } from '@server/product/xmanager/user/userManager'
+import { login, register, logout } from '@server/product/auth/authController'
+import { getUserInfo, updateUserInfo } from '@server/product/user/userController'
 import test from '@server/product/test'
 
 export const apiRoute: RouterMapsProps[] = [
     {
         'path': '/',
         'view': '../res/libsx',
-    }, {
-        'path': '/api/v1/abc/:id$',
-        'server': test
-    }, {
-        'path': '/api/v1/users/createUser',
+    },
+    // 认证接口
+    {
+        'path': '/api/auth/login',
+        'server': login
+    },
+    // 注册接口
+    {
+        'path': '/api/auth/register',
+        'server': register
+    },
+    // 登出接口
+    {
+        'path': '/api/auth/logout',
+        'server': logout
+    },
+    // 用户信息接口
+    {
+        'path': '/api/user/info',
+        'server': getUserInfo
+    },
+    {
+        'path': '/api/user/info',
+        'server': updateUserInfo
+    },
+    // 用户管理接口
+    {
+        'path': '/api/users/createUser',
         'server': createUser
-    },{
-        'path': '/api/v1/users/getUsers',
+    },
+    {
+        'path': '/api/users/getUsers',
         'server': getUsers
     },
     {
-        'path': '/api/v1/users/updateUser/:id',
+        'path': '/api/users/updateUser/:id',
         'server': updateUser
     },
     {
-        'path': '/api/v1/users/deleteUser/:id',
+        'path': '/api/users/deleteUser/:id',
         'server': deleteUser
     }
 ]

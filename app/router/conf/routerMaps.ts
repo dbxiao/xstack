@@ -6,8 +6,8 @@
  * @warning 新增或修改路由时，需确保路由的唯一性。
  * @copyright dbxiao@msn.cn All rights reserved.
  */
-import { defaultRoute } from '../conf/default'
-import { apiRoute } from '../conf/apiRoute'
+import { defaultRoute } from './default'
+import { apiRoute } from './apiRoute'
 import { RouterMapsProps } from '../types'
 import test from '@server/product/test'
 

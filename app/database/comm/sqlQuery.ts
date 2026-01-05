@@ -36,7 +36,7 @@ export async function select(
 
     // 处理 WHERE 条件
     if (where && !objIsEmpty(where)) {
-        const whereClauses = Object.keys(where).map(key => `${key} = ?`);
+        const whereClauses = Object.keys(where).map(key => `${key} = '${where[key]}'`);
         sql += ` WHERE ${whereClauses.join(' AND ')}`;
         values = Object.values(where);
     }
