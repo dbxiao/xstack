@@ -170,11 +170,11 @@ export const register = async (req: Request, res: Response): Promise<void> => {
 export const logout = async (req: Request, res: Response): Promise<void> => {
   try {
     // 清除cookie中的token和用户信息
-    res.clearCookie('uToken', {
+    res.clearCookie('u_token', {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict'
-    }).clearCookie('uInfo', {
+    }).clearCookie('u_info', {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict'

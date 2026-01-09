@@ -42,7 +42,7 @@ webroot/
 
 ```bash
 # 使用Python启动简易HTTP服务器
-cd /Users/xiaoxiao72/Develop/dbxiao/ai-coder/xstack
+cd /Users/xiaoxiao72/Develop/dbxiao/autobyte/xstack
 python -m http.server 8080
 ```
 

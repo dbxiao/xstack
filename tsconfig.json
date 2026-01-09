@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
-        "module": "CommonJS",
-        "target": "ES6",
+        "module": "commonjs",
+        "target": "es2020",
         "sourceMap": true,
         "baseUrl": "./",
         "rootDir": "./",
@@ -23,19 +23,16 @@
             "@router/*": ["app/router/*"],
             "@server/*": ["app/server/*"],
             "@config/*": ["config/*"],
-            "@widget/*": ["app/widget/*"],
+            "@widget/*": ["app/widget/*"]
         }
     },
     "files": [
-        "static.d.ts",
+        "static.d.ts"
     ],
     "include": [
-        "app/*",
-        "config/*",
-        "package.json",
-        "tsconfig.json", 
-        "static.d.ts",
-        "ecosystem.config.js"
+        "app/**/*",
+        "config/**/*",
+        "static.d.ts"
     ],
     "exclude": [
         "node_modules/*",
@@ -43,6 +40,6 @@
         "test/*",
         "logs",
         "**/*.spec.ts",
-        "**/*.spec.js",
+        "**/*.spec.js"
     ]
 }

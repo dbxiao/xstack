@@ -6,12 +6,12 @@
  * @copyright dbxiao@foxmail.com. All rights reserved.
  */
 
-import jwt from 'jsonwebtoken';
+import jwt, { SignOptions } from 'jsonwebtoken';
 
 // JWT配置
 const JWT_CONFIG = {
-  secret: process.env.JWT_SECRET, // 从环境变量获取密钥
-  expiresIn: '24h', // 过期时间
+  secret: process.env.JWT_SECRET || 'default-secret-key-change-in-production',
+  expiresIn: 86400 // 24h in seconds
 };
 
 // JWT Payload接口
@@ -29,11 +29,15 @@ export interface JwtPayload {
  * @param payload JWT负载
  * @returns JWT令牌
  */
-export function generateToken(payload: JwtPayload): string {
+export function generateToken(payload: Omit<JwtPayload, 'iat' | 'exp'>): string {
   if (!JWT_CONFIG.secret) {
     throw new Error('JWT_SECRET 未配置');
   }
-  return jwt.sign(payload, JWT_CONFIG.secret as jwt.Secret, { expiresIn: JWT_CONFIG.expiresIn });
+  const options: SignOptions = {
+    expiresIn: JWT_CONFIG.expiresIn,
+    algorithm: 'HS256'
+  };
+  return jwt.sign(payload, JWT_CONFIG.secret, options);
 }
 
 /**
@@ -42,10 +46,10 @@ export function generateToken(payload: JwtPayload): string {
  * @param token JWT令牌
  * @returns 验证结果
  */
-export function verifyToken(token: string): JwtPayload | null {
+export function verifyToken(token: string): { user: JwtPayload } | null {
   try {
     const decoded = jwt.verify(token, JWT_CONFIG.secret) as JwtPayload;
-    return decoded;
+    return { user: decoded };
   } catch (error) {
     return null;
   }
@@ -58,6 +62,10 @@ export function verifyToken(token: string): JwtPayload | null {
  * @returns 解码结果
  */
 export function decodeToken(token: string): JwtPayload | null {
-  const decoded = jwt.decode(token) as JwtPayload;
-  return decoded;
+  try {
+    const decoded = jwt.decode(token) as JwtPayload;
+    return decoded;
+  } catch {
+    return null;
+  }
 }

@@ -9,7 +9,7 @@ import fs  from 'fs'
 import Hash  from '@common/hash'
 import Util  from '@common/util'
 import RestAPI  from '@common/restAPI'
-import { log } from '@widget/libs'
+import { log } from '@widget/libs'      
 
 const { 
     PREFIX,
@@ -99,7 +99,7 @@ class Page {
             }
         }
 
-        Console.log('@page::checkLoginStatus', data)
+        log('@page::checkLoginStatus', data)
         return data
     }
 
@@ -138,7 +138,7 @@ class Page {
         const port = new URL(`http://${hostHeader}`).port || '80'
         const redirectUrl = protocol + '://' + host + ':' + port + originalUrl;
         const loginURI = `${RestAPI.WEB_LOGIN_URI}?redirectUrl=${encodeURIComponent(redirectUrl)}`
-        Console.log('@page::go2Login', loginURI)
+        log('@page::go2Login', loginURI)
         this.props.res.redirect(302, loginURI)
     }
 
@@ -169,10 +169,10 @@ class Page {
     getPPEView(filePath) {
         try {
             fs.accessSync(`${global.nodeConf.VIEW_DIR}${filePath}.html`, fs.constants.R_OK);
-            Console.log('@page::getPPEView', `file can read:  ${global.nodeConf.VIEW_DIR}@@${filePath}`)
+            log('@page::getPPEView', `file can read:  ${global.nodeConf.VIEW_DIR}@@${filePath}`)
             return true;
         } catch (err) {
-            Console.log('@page::getPPEView error: ', err)
+            log('@page::getPPEView error: ', err)
             return false;
         }
     }
@@ -188,7 +188,7 @@ class Page {
             const filePath = `${dirName}/${this.props._view}`
 
             if (usePPE === 1 && dirName && this.getPPEView(filePath)) {
-                Console.log('@page::render PPE render: ', usePPE, dirName, filePath)
+                log('@page::render PPE render: ', usePPE, dirName, filePath)
                 this.props.res.render(filePath, this.state)
             } else {
                 this.props.res.render(this.props._view, this.state)

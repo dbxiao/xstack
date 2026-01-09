@@ -49,15 +49,15 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction):
   }
   
   // 验证令牌
-  const decoded = verifyToken(token);
+  const result = verifyToken(token);
   
-  if (!decoded) {
+  if (!result) {
     res.status(401).json({ code: 401, message: '无效的认证令牌' });
     return;
   }
   
   // 将解码后的用户信息添加到请求对象中
-  req.user = decoded;
+  req.user = result.user;
   
   // 继续处理请求
   next();
