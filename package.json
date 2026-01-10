@@ -28,7 +28,7 @@
     },
     "dependencies": {
         "axios": "^1.6.2",
-        "compression": "^1.7.4",
+        "compression": "^1.8.1",
         "cookie-parser": "^1.4.6",
         "dotenv": "^16.3.1",
         "ejs": "^3.1.9",
@@ -36,7 +36,7 @@
         "jsonwebtoken": "^9.0.3",
         "mariadb": "^3.4.4",
         "module-alias": "^2.2.3",
-        "multer": "^2.0.1",
+        "multer": "^2.0.2",
         "mysql2": "^3.6.5",
         "pm2": "^5.3.0",
         "redis": "^4.6.11",
