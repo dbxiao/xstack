@@ -23,6 +23,8 @@ export interface User {
   avatar_url?: string;
   birthdate?: Date;
   gender: number;
+  theme: string;
+  font_size: string;
   created_at: Date;
   updated_at: Date;
 }
@@ -51,6 +53,8 @@ export interface UpdateUser {
   avatar_url?: string;
   birthdate?: Date;
   gender?: number;
+  theme?: string;
+  font_size?: string;
 }
 
 /**

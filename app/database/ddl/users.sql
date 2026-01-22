@@ -23,5 +23,9 @@ CREATE TABLE IF NOT EXISTS users (
     -- 出生日期
     birthdate DATE,
     -- 性别，0 表示未知，1 表示男性，2 表示女性
-    gender TINYINT DEFAULT 0
+    gender TINYINT DEFAULT 0,
+    -- 主题设置，light 表示浅色主题，dark 表示深色主题
+    theme VARCHAR(10) DEFAULT 'light',
+    -- 字体大小设置，compact 表示紧凑模式，standard 表示标准模式，large 表示大字体模式
+    font_size VARCHAR(20) DEFAULT 'standard'
 );

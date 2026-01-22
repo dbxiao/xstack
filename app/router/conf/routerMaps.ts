@@ -9,7 +9,6 @@
 import { defaultRoute } from './default'
 import { apiRoute } from './apiRoute'
 import { RouterMapsProps } from '../types'
-import test from '@server/product/test'
 
 export const routerMaps: RouterMapsProps[] = [
     {

@@ -7,7 +7,7 @@
 import { RouterMapsProps } from '../types'
 import { createUser, getUsers, updateUser, deleteUser } from '@server/product/xmanager/user/userManager'
 import { login, register, logout } from '@server/product/auth/authController'
-import { getUserInfo, updateUserInfo } from '@server/product/user/userController'
+import { getUserInfo, updateUserInfo, changePassword, changeEmail, saveThemeSettings } from '@server/product/user/userController'
 import test from '@server/product/test'
 
 export const apiRoute: RouterMapsProps[] = [
@@ -38,6 +38,21 @@ export const apiRoute: RouterMapsProps[] = [
     {
         'path': '/api/user/info',
         'server': updateUserInfo
+    },
+    // 修改密码接口
+    {
+        'path': '/api/user/password',
+        'server': changePassword
+    },
+    // 修改邮箱接口
+    {
+        'path': '/api/user/email',
+        'server': changeEmail
+    },
+    // 主题设置接口
+    {
+        'path': '/api/user/theme',
+        'server': saveThemeSettings
     },
     // 用户管理接口
     {
